@@ -2,7 +2,7 @@
 
 Karate practice strengthens the mind, it teaches "Mentality over technique".
 
-Having tried shotokan karate myself, I can say that it is a fantasic sport! It not only strenghthens your body but also your mind and spirit.
+Having tried shotokan karate myself, I can say that it is a fantasic sport! It not only strengthens your body but also your mind and spirit.
 
 My Sensei Seamus O'Dowd is a 6th Dan black belt. He has been teaching Karate for over two decades. His students are all over the world. Since 2018, he decided to give up his job and teach Karate full time in his Dojo in Stamullen Co.Meath.
 
@@ -114,8 +114,6 @@ A relational database is best suited to this project given the number of relatio
 
 ## **Technologies Used**
 
-[Back to contents](#contents) ⬆️
-
 ### **Languages**
 
 ### **Frameworks**
@@ -127,6 +125,8 @@ A relational database is best suited to this project given the number of relatio
 ### **Project Management**
 
 ### **Tools**
+
+[Back to contents](#contents) ⬆️
 
 ## **Testing**
 
