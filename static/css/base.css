@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap');
+
+
+.navbar-brand {
+    font-family: 'Grechen Fuemen', cursive;
+    font-size: 2rem;
+}
+.navbar-toggler {
+    margin-top: 0 !important;
+}
