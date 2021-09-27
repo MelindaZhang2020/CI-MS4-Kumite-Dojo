@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grechen+Fuemen&Russo+One&display=swap');
 
 html {
     height: 100%;
@@ -22,22 +22,26 @@ body {
 .main-logo-link {
   width: fit-content;
 }
-
+.tag-line {
+  font-family: 'Russo One', sans-serif;
+  font-weight: 800;
+  font-size: 3rem;
+}
+.sub {
+  color:#fbfbf8;
+}
 .join-now-button {
   background: #d83f2d;
   color: white;
-  min-width: 260px;
+  min-width: 220px;
+  margin: 2rem 2rem 2rem 0;
 }
 
-.btn-black {
+.btn-red {
   background: #d83f2d;
   color: white;
 }
-.btn-outline-black {
-  background: white;
-  color: #d83f2d!important; /* use important to override link colors for <a> elements */
-  border: 1px solid #d83f2d;
-}
+
 .join-now-button:hover,
 .join-now-button:active,
 .join-now-button:focus,
@@ -55,9 +59,19 @@ body {
 .border-black {
   border: 1px solid black !important;
 }
-.bg-black {
-  background: #000 !important;
+.bg-choco {
+  background: #916b64 !important;
 }
+
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+}
+
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
   .fixed-top-desktop-only {
