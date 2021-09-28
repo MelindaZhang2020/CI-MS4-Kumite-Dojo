@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Grechen+Fuemen&family=Russo+One&family=Gemunu+Libre:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grechen+Fuemen&family=Russo+One&family=Gemunu+Libre:wght@300&family=Lato&display=swap');
 
 html {
     height: 100%;
@@ -19,7 +19,7 @@ body {
     font-family: 'Grechen Fuemen', cursive;
     font-size: 2rem;
 }
-
+.nav-text,
 .banner-text {
   font-family: 'Gemunu Libre', sans-serif;
   font-size: 1.3rem;
@@ -100,3 +100,4 @@ body {
     padding-top: 164px;
   }
 }
+
