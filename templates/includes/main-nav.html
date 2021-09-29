@@ -17,14 +17,26 @@
             <a href="" class="font-weight-bold nav-link text-black mr-5 nav-text" id="membership">Membership</a>
         </li>
         <li class="nav-item dropdown">
-            <a href="" class="font-weight-bold dropdown-toggle nav-link text-black mr-5 nav-text" id="shop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="#" class="font-weight-bold dropdown-toggle nav-link text-black mr-5 nav-text" id="shop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Shop
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="shop">
-                <a href="" class="dropdown-item nav-text">By price</a>
-                <a href="" class="dropdown-item nav-text">Rating</a>
-                <a href="" class="dropdown-item nav-text">Category</a>
-                <a href="{% url 'products' %}" class="dropdown-item nav-text">All Products</a>
+                <a href="{% url 'products' %}?category=training,uniforms,karate,belts,books,accessories" class="dropdown-item nav-text">All Products</a>
+                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item nav-text">By price</a>
+                <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item nav-text">Rating</a>
+                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item nav-text dropdown">Category
+                    <a href="#" class="font-weight-bold nav-link text-black ml-5 nav-text dropdown-toggle" id="category" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    </a>
+                    <div class="dropdown-menu border-0" aria-labelledby="category">
+                        <a href="{% url 'products' %}?category=traininggi" class="dropdown-item nav-text">Training Gi</a>
+                        <a href="{% url 'products' %}?category=karatebelt" class="dropdown-item nav-text">Karate Belt</a>
+                        <a href="{% url 'products' %}?category=books" class="dropdown-item nav-text">Books</a>
+                        <a href="{% url 'products' %}?category=accessories" class="dropdown-item nav-text">Accessories</a>
+                    </div>
+                </a>
+
+
+                
             </div>
         </li>
         <li class="nav-item">
