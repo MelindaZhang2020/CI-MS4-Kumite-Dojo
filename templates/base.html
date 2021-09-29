@@ -40,14 +40,14 @@
     <body>
         <header class="container-fulid fixed-top-desktop-only">
             <div  id="topnav" class="row list-inline  bg-white pt-lg-2 d-lg-flex">
-                <div class="col-12 col-lg-4 my-auto py1 py-lg-0 text-center text-lg-left">
+                <div class="col-12 col-lg-4 my-auto py1 py-lg-0 text-center text-lg-left d-none d-lg-block">
                     <a href="{% url 'home' %}" class="nav-link main-logo-link">
                         <img src="{% static 'img/logo.png' %}" alt="dojo-logo" width="60" height="60" class="d-inline-block align-text-center list-inline-item">
                         <h2 class="logo-font list-inline-item text-black my-0"><strong>Kumite Dojo</strong></h2>
                     </a>
                 </div>
                 <div class="col-12 col-lg-4 my-auto py1 py-lg-0 d-none d-lg-block">
-                    <form method="GET" action="">
+                    <form method="GET" action="{% url 'products' %}">
                         <div class="input-group w-100">
                           <input
                             class="form-control border border-black rounded-0"
@@ -96,6 +96,15 @@
                                     <a href="{% url 'account_login' %}" class="dropdown-item nav-text">Login</a>
                                 {% endif %}
                             </div>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="" class="nav-link text-black">
+                                <div class="text-center">
+                                <div><i class="fas fa-heart"></i></div>
+                                <p class="my-0 nav-text">Wishlist
+                                </p>
+                                </div>
+                            </a>
                         </li>
                         <li class="list-inline-item">
                             <a
