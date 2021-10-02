@@ -14,7 +14,6 @@ class ProductAdmin(admin.ModelAdmin):
     list_editable = ["price", "rating"]
     list_filter = ["price", "category"]
     readonly_field = ["update", "timestamp"]
-    prepopulated_fields = {"slug": ("name",)}
     ordering = ("sku",)
 
 
