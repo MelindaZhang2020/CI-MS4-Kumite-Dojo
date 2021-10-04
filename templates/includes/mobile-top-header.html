@@ -4,7 +4,7 @@
         <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
                 <div><i class="fas fa-search fa-lg"></i></div>
-                <p class="my-0">Search</p>
+                <p class="my-0"></p>
             </div>
         </a>
         <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
@@ -26,7 +26,7 @@
         <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="text-center">
                 <div><i class="fas fa-user fa-lg"></i></div>
-                <p class="my-0">My Account</p>
+                <p class="my-0"></p>
             </div>
         </a>
         <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -46,18 +46,21 @@
         <a href="" class="nav-link text-black d-block d-lg-none">
             <div class="text-center">
             <div><i class="fas fa-heart"></i></div>
-            <p class="my-0 nav-text">Wishlist
+            <p class="my-0 nav-text">
             </p>
             </div>
         </a>
     </li>
-    <li class="list-inline-item">
-        <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="{% url 'view_bag' %}">
-            <div class="text-center">
-                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                <p class="my-0">
-                    {{ product_count }}
-                </p>
+    <li class="list-inline-item position-relative">
+        <a class="{% if bag_items %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="{% url 'view_bag' %}">
+            <div class="text-center position-relative">
+                <i class="fas fa-shopping-basket fa-lg "></i>
+
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger ">
+                        {{ product_count }}
+                        <span class="visually-hidden"></span>
+                    </span>
+               
             </div>
         </a>
     </li>
