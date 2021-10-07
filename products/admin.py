@@ -26,8 +26,8 @@ class ProductImageAdmin(admin.StackedInline):
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     search_fields = ("name", "description")
-    list_display = ("name", "stock", "price", "slug", "active")
-    list_editable = ["price", "active"]
+    list_display = ("name", "stock", "price", "slug", "active", "is_featured")
+    list_editable = ["price", "active", "is_featured"]
     list_filter = ["price", "category"]
     readonly_field = ["update", "timestamp"]
     prepopulated_fields = {"slug": ("name",)}

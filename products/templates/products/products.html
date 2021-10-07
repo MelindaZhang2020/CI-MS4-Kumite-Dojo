@@ -57,13 +57,13 @@
                                 {% if product.productimage_set.all %}
                                     {% for item in product.productimage_set.all %}
                                         {% if item.featured %}
-                                            <a href="{% url 'product_detail' product.id %}">
+                                            <a href="{% url 'product_detail' product.slug %}">
                                                 <img class="card-img-top img-fluid" src="{{ item.image.url }}" alt="{{ product.name }}">
                                             </a>
                                         {% endif %}
                                     {% endfor %}
                                 {% else %}
-                                    <a href="{% url 'product_detail' product.id %}">
+                                    <a href="{% url 'product_detail' product.slug %}">
                                         <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                     </a>
                                 {% endif %}

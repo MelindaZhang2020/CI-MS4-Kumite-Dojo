@@ -24,5 +24,23 @@
             </div>
         </div>
     </div>
-    
+    <div class="container">
+        <!-- Featured Products -->
+        <h3 class="my-4 border-bottom pb-1">Featured Products</h3>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            {% for product in products %}
+            <div class="col">
+              <div class="card">
+                <a href="{% url 'product_detail' product.slug %}">
+                    <img class="card-img-top" src="{{ product.productimage_set.first.image.url }}" alt="{{ product.name }}">
+                </a>
+                <div class="card-body">
+                  <h5 class="card-title">{{ product.name }}</h5>
+                  <p class="card-text">{{ product.description|truncatewords:15 }}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}   
+        </div>
+    </div>
 {% endblock%}

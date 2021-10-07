@@ -29,6 +29,7 @@ class Product(models.Model):
     timestamp = models.DateTimeField(auto_now_add=False, auto_now=True)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
     active = models.BooleanField(default=True)
+    is_featured = models.BooleanField(default=False)
 
     class Meta:
         unique_together = ("name", "slug")
@@ -49,6 +50,7 @@ class ProductImage(models.Model):
         return self.image
 
 
+# Variation Manager
 class VariationManager(models.Manager):
     def colors(self):
         return super(VariationManager, self).filter(
