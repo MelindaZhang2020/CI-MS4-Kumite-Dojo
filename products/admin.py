@@ -1,20 +1,5 @@
 from django.contrib import admin
-from .models import Product, Category, ProductImage
-
-
-class ProductAdmin(admin.ModelAdmin):
-    search_fields = ("name", "description")
-    list_display = (
-        "sku",
-        "name",
-        "category",
-        "price",
-        "rating",
-    )
-    list_editable = ["price", "rating"]
-    list_filter = ["price", "category"]
-    readonly_field = ["update", "timestamp"]
-    ordering = ("sku",)
+from .models import Product, Category, ProductImage, Variation
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -24,6 +9,34 @@ class CategoryAdmin(admin.ModelAdmin):
     )
 
 
-admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(ProductImage)
+
+
+class VariationAdmin(admin.ModelAdmin):
+    list_display = ("product", "variation_category", "variation_value", "active")
+
+
+admin.site.register(Variation, VariationAdmin)
+
+
+class ProductImageAdmin(admin.StackedInline):
+    model = ProductImage
+
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    search_fields = ("name", "description")
+    list_display = ("name", "stock", "price", "slug", "active")
+    list_editable = ["price", "active"]
+    list_filter = ["price", "category"]
+    readonly_field = ["update", "timestamp"]
+    prepopulated_fields = {"slug": ("name",)}
+    inlines = [ProductImageAdmin]
+
+    class Meta:
+        model = Product
+
+
+@admin.register(ProductImage)
+class ProductImageAdmin(admin.ModelAdmin):
+    pass
