@@ -65,27 +65,20 @@
                         {% csrf_token %}
                         <div class="form-row">
                             <div class="col-12">
-                                
-                                    
-                                        <div class="col">
-                                            <label class="mr-3" for="color">Color:</label>
-                                            
-                                            <select id="color" name="color">
-                                                <option value="white">White</option>
-                                                <option value="black">Black</option>
-                                            </select>
-                                            
-                                        </div>
-                                    
-                                    
-                                        <div class="col">
-                                            <label class="mr-3" for="size">Size:</label>
-                                            <select id="size" name="size">
-                                                <option value="white"></option>
-                                            </select>
-                                        </div>
-                                    
-                                
+                                <label class="mr-3" for="color" class="form-control w-50">Color:</label>
+                                <select name="color" class="form-control w-50" required>
+                                    <option value="" disabled selected>Select</option>
+                                    {% for i in product.variation_set.colors %}
+                                        <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}</option>
+                                    {% endfor %}
+                                </select>
+                                <label class="mr-3" for="size">Size:</label>
+                                <select name="size" class="form-control w-50" required>
+                                    <option value="" disabled selected>Select</option>
+                                    {% for i in product.variation_set.sizes %}
+                                        <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}</option>
+                                    {% endfor %}
+                                </select>
                             </div>
                             <div class="col-12">
                                 <p class="mt-3"><strong>Quantity:</strong></p>

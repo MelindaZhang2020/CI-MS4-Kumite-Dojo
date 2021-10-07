@@ -29,9 +29,6 @@ class Product(models.Model):
     timestamp = models.DateTimeField(auto_now_add=False, auto_now=True)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
     active = models.BooleanField(default=True)
-    product = models.ManyToManyField(
-        "ProductImage", blank=True, related_name="product_image"
-    )
 
     class Meta:
         unique_together = ("name", "slug")
@@ -52,6 +49,19 @@ class ProductImage(models.Model):
         return self.image
 
 
+class VariationManager(models.Manager):
+    def colors(self):
+        return super(VariationManager, self).filter(
+            variation_category="color", active=True
+        )
+
+    def sizes(self):
+        return super(VariationManager, self).filter(
+            variation_category="size", active=True
+        )
+
+
+# Variation
 variation_category_choice = (
     ("color", "color"),
     ("size", "size"),
@@ -67,5 +77,7 @@ class Variation(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
     active = models.BooleanField(default=True)
 
-    def __unicode__(self):
-        return self.product
+    objects = VariationManager()
+
+    def __str__(self):
+        return self.variation_value
