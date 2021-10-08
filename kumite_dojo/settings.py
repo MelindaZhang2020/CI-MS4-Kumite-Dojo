@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "home",
     "products",
     "bag",
+    "accounts",
 ]
 
 MIDDLEWARE = [
@@ -96,6 +97,7 @@ AUTHENTICATION_BACKENDS = [
 
 WSGI_APPLICATION = "kumite_dojo.wsgi.application"
 
+AUTH_USER_MODEL = "accounts.Account"
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
