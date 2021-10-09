@@ -25,17 +25,12 @@
                             </div>
                            <hr>
                             {% else %}
-                            
-                                
                                 <div class="row">
                                     <div class="col-md-3 ">
                                         <img class="card-img-top" src="{{ item.image.url }}" alt="{{ product.name }}">
                                     </div>
-                            
-                                   </div>
-                                       
+                                </div>   
                             {% endif%}
-                              
                         {% endfor %}
                     {% else %}
                         <a href="{{ MEDIA_URL }}noimage.png" target="blank">
@@ -65,12 +60,14 @@
                         {% csrf_token %}
                         <div class="form-row">
                             <div class="col-12">
+                                {% if product.variation_set.colors %}
                                 <label class="mr-3" for="color" class="form-control w-50">Color:</label>
                                 <select name="color" class="form-control w-50" required>
                                     <option value="" disabled selected>Select</option>
                                     {% for i in product.variation_set.colors %}
                                         <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}</option>
                                     {% endfor %}
+                                {% endif %}
                                 </select>
                                 <label class="mr-3" for="size">Size:</label>
                                 <select name="size" class="form-control w-50" required>
