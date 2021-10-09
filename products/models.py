@@ -52,6 +52,8 @@ class ProductImage(models.Model):
 
 # Variation Manager
 class VariationManager(models.Manager):
+    use_in_migrations = True
+
     def colors(self):
         return super(VariationManager, self).filter(
             variation_category="color", active=True
