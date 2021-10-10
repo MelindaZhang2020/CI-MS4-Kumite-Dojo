@@ -23,7 +23,7 @@
     </div>
     <div class="row">
         <div class="col">
-            {% if bag_items %}
+            
                 <div class="table-responsive rounded">
                     <table class="table table-sm table-borderless">
                         <thread class="text-black">
@@ -35,27 +35,26 @@
                                 <th scope="col">Subtotal</th>
                             </tr>
                         </thread>
-                        {% for item in bag_items %}
+                        
                             <tr>
                                 <td class="p-3 w-25">
-                                    <img src="{{ item.product.image.url }}" alt="" class="img-fluid rounded">
+                                    <img src="" alt="" class="img-fluid rounded">
                                 </td>
                                 <td class="py-3">
-                                    <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                                    <p class="my-0"><strong>Size: </strong>{% if item.product.has_adult_sizes %}{% elif item.product.has_kid_sizes %}{% elif item.product.has_belt_sizes %}{{ item.size }}{% else %}N/A{% endif %}</p>
-                                    <p class="my-0 small text-muted"> SKU: {{ item.product.sku|upper }}</p>
+                                    <p class="my-0"><strong>name</strong></p>
+                                    <p class="my-0"><strong>Size: </strong>}</p>
                                 </td>
                                 <td class="py-3">
-                                    <p class="my-0">€ {{ item.product.price }}</p>
+                                    <p class="my-0">€ </p>
                                 </td>
                                 <td class="py-3">
-                                    <form class="form update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
+                                    <form class="form update-form" action="}" method="POST">
                                         {% csrf_token %}
                                         <div class="form-group">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <button class="decrement-qty btn btn-sm btn-red rounded-0" 
-                                                      data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                      data-item_id="" id="">
                                                       <span>
                                                           <i class="fas fa-minus fa-sm"></i>
                                                       </span>
@@ -72,9 +71,9 @@
                                                         </span>
                                                     </button>
                                                 </div>
-                                                {% if item.product.has_adult_sizes %}{% elif item.product.has_kid_sizes %}{% elif item.product.has_belt_sizes %}
+  
                                                     <input type="hidden" name="product_size" value="{{ item.size }}">
-                                                {% endif %}
+                                                
                                             </div>
                                         </div>
                                     </form>
@@ -83,19 +82,19 @@
                                         data-product_size="{{ item.size }}"><small>Remove</small></a>
                                 </td>
                                 <td class="py-3">
-                                    <p class="my-0">€ {{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                    <p class="my-0">€ </p>
                             </tr>
                         {% endfor %} 
                         <tr>
                             <td colspan="5" class="pt-5 text-right">
-                                <h6><strong>Bag Total: € {{ total|floatformat:2 }}</strong></h6>
-                                <h6>Delivery: € {{ delivery|floatformat:2 }}</h6>
-                                <h4 class="mt-4"><strong>Grand Total: € {{ grand_total|floatformat:2 }}</strong></h4>
-                                {% if free_delivery_delta > 0 %}
+                                <h6><strong>Bag Total: € </strong></h6>
+                                <h6>Delivery: € </h6>
+                                <h4 class="mt-4"><strong>Grand Total: € {</strong></h4>
+                                
                                     <p class="mb-1 text-danger">
-                                        You could get free delivery by spending just <strong>€ {{ free_delivery_delta }}</strong> more!
+                                        You could get free delivery by spending just <strong>€ </strong> more!
                                     </p>
-                                {% endif %}
+                                
                             </td>
                         </tr>
                         <tr>
