@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.core.exceptions import ObjectDoesNotExist
 from products.models import Product
 from .models import Bag, BagItem
 from django.http import HttpResponse
 from django.conf import settings
+from decimal import Decimal
 
 
 def _bag_id(request):
@@ -54,7 +55,7 @@ def view_bag(request, total=0, quantity=0, bag_items=None):
         else:
             delivery = 0
             free_delivery_delta = 0
-            grand_total = delivery + total
+        grand_total = delivery + total
 
     except ObjectDoesNotExist:
         pass  # just ignore
@@ -64,10 +65,30 @@ def view_bag(request, total=0, quantity=0, bag_items=None):
         "quantity": quantity,
         "bag_items": bag_items,
         "delivery": delivery,
-        "grand_total": grand_total,
         "free_delivery_delta": free_delivery_delta,
+        "grand_total": grand_total,
     }
     return render(request, "bag/bag.html", context)
+
+
+def remove_from_bag(request, product_id):
+    bag = Bag.objects.get(bag_id=_bag_id(request))
+    product = get_object_or_404(Product, id=product_id)
+    bag_item = BagItem.objects.get(product=product, bag=bag)
+    if bag_item.quantity > 1:
+        bag_item.quantity -= 1
+        bag_item.save()
+    else:
+        bag_item.delete()
+    return redirect("view_bag")
+
+
+def remove_bag_item(request, product_id):
+    bag = Bag.objects.get(bag_id=_bag_id(request))
+    product = get_object_or_404(Product, id=product_id)
+    bag_item = BagItem.objects.get(product=product, bag=bag)
+    bag_item.delete()
+    return redirect("view_bag")
 
 
 # def add_to_bag(request, item_id):
