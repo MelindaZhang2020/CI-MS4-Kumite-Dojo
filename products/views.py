@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Product, Category
+from bag.models import BagItem
+from bag.views import _bag_id
 
 
 def all_products(request):
@@ -57,9 +59,13 @@ def product_detail(request, slug):
     """A view to show individual product details"""
 
     product = get_object_or_404(Product, slug=slug)
+    in_bag = BagItem.objects.filter(
+        bag__bag_id=_bag_id(request), product=product
+    ).exists()
 
     context = {
         "product": product,
+        "in_bag": in_bag,
     }
 
     return render(request, "products/product_detail.html", context)
