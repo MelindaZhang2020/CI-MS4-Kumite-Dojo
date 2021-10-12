@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     "bag",
     "accounts",
     "checkout",
+    # other
+    "crispy-forms",
 ]
 
 MIDDLEWARE = [
@@ -66,6 +68,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "kumite_dojo.urls"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 SITE_ID = 1
 
@@ -84,6 +88,10 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "bag.context_processors.counter",
+            ],
+            "builtins": [
+                "crispy-forms.templatetags.crispy_forms_tags",
+                "crispy-forms.templatetags.crispy_forms_field",
             ],
         },
     },
