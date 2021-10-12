@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-{% load bag_tools %}
 
 {% block page_header %}
     <div class="container header-container">
@@ -46,18 +45,21 @@
                         {% for bag_item in bag_items %}
                         <tr>
                             <td class="p-3 w-25">
-                                <img src="{{ bag_item.productimage_set.all.featured.url }}" alt="" class="img-fluid rounded">
+                                <img src="{{ bag_item.product.productimage_set.featured.url }}" alt="{{bag_item.product.name}}" class="img-fluid rounded">
                             </td>
                             <td class="py-3 w-10">
                                 <a href="{{ bag_item.product.get_url }}" class="my-0"><strong>{{ bag_item.product.name }}</strong></a>
-                                <p class="my-0"><strong>Color: </strong></p>
-                                <p class="my-0"><strong>Size: </strong></p>
+                                {% if bag_item.variations.all %}
+                                    {% for item in bag_item.variations.all %}
+                                    {{ item.variation_category|capfirst }} : {{ item.variation_value|capfirst }}<br>
+                                    {% endfor %}
+                                {% endif %}
                             </td>
                             <td class="py-3">
                                 <p class="my-0">€{{bag_item.product.price }}</p>
                             </td>
                             <td class="py-3">
-                                <form class="form update-form" action="}" method="POST">
+                                <form class="form update-form" action="" method="POST">
                                     {% csrf_token %}
                                     <div class="form-group">
                                         <div class="input-group">

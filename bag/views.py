@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.core.exceptions import ObjectDoesNotExist
-from products.models import Product
+from products.models import Product, Variation
 from .models import Bag, BagItem
 from django.http import HttpResponse
 from django.conf import settings
@@ -16,6 +16,11 @@ def _bag_id(request):
 
 
 def add_to_bag(request, product_id):
+    if request.method == "POST":
+        color = request.POST["color"]
+        size = request.POST["size"]
+        print(color, size)
+
     product = Product.objects.get(id=product_id)  # get the product
     try:
         bag = Bag.objects.get(
@@ -28,6 +33,7 @@ def add_to_bag(request, product_id):
 
     try:
         bag_item = BagItem.objects.get(product=product, bag=bag)  # get the bagitem
+
         bag_item.quantity += 1
         bag_item.save()
 
@@ -37,6 +43,7 @@ def add_to_bag(request, product_id):
             quantity=1,
             bag=bag,
         )
+
         bag_item.save()
     return redirect("view_bag")
 

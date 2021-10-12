@@ -1,5 +1,16 @@
 from django.contrib import admin
 from .models import Bag, BagItem
 
-admin.site.register(Bag)
-admin.site.register(BagItem)
+
+class BagAdmin(admin.ModelAdmin):
+    list_display = ("bag_id", "date_added")
+
+
+admin.site.register(Bag, BagAdmin)
+
+
+class BagItemAdmin(admin.ModelAdmin):
+    list_display = ("product", "bag", "quantity", "is_active")
+
+
+admin.site.register(BagItem, BagItemAdmin)
