@@ -61,7 +61,7 @@
                             <td class="py-3">
                                 <div class="input-group input-spinner">
                                     <div class="input-group-prepend">
-                                    <a href="{% url 'remove_from_bag' bag_item.product.id bag_item.id %}" class="btn btn-light" type="button" id="button-plus"> <i class="fa fa-minus"></i> </a>
+                                    <a href="{% url 'remove_from_bag' bag_item.product.id bag_item.id %}" class="btn btn-red" type="button" id="button-plus"> <i class="fa fa-minus"></i> </a>
                                     </div>
                                     <input type="text" class="form-control"  value="{{ bag_item.quantity }}">
                                     <div class="input-group-append">
@@ -70,7 +70,7 @@
                                             {% for item in bag_item.variations.all %}
                                                 <input type="hidden" name="{{ item.variation_category | lower }}" value="{{ item.variation_value | capfirst }}">
                                             {% endfor %}
-                                            <button class="btn btn-light" type="submit" id="button-minus"> <i class="fa fa-plus"></i> </button>
+                                            <button class="btn btn-red" type="submit" id="button-minus"> <i class="fa fa-plus"></i> </button>
                                         </form>
                                     </div>
                                 </div> 

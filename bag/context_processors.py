@@ -1,5 +1,6 @@
 from .models import Bag, BagItem
 from .views import _bag_id
+from django.conf import settings
 
 
 def counter(request):

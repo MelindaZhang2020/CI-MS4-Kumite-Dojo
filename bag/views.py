@@ -5,6 +5,7 @@ from .models import Bag, BagItem
 from django.http import HttpResponse
 from django.conf import settings
 from decimal import Decimal
+from django.contrib import messages
 
 
 def _bag_id(request):
@@ -16,7 +17,7 @@ def _bag_id(request):
 
 
 def add_to_bag(request, product_id):
-    product = Product.objects.get(id=product_id)  # get the product
+    product = get_object_or_404(Product, pk=product_id)  # get the product
     product_variation = []
     if request.method == "POST":
         for item in request.POST:
@@ -61,6 +62,8 @@ def add_to_bag(request, product_id):
             item = BagItem.objects.get(product=product, id=item_id)
             item.quantity += 1
             item.save()
+            messages.success(request, f"Added {product.name} to your bag")
+
         else:
             # create new bagitem
             item = BagItem.objects.create(product=product, quantity=1, bag=bag)
@@ -68,6 +71,7 @@ def add_to_bag(request, product_id):
                 item.variations.clear()
                 item.variations.add(*product_variation)
             item.save()
+            messages.success(request, f"Added {product.name} to your bag")
 
     else:
         bag_item = BagItem.objects.create(
@@ -79,6 +83,8 @@ def add_to_bag(request, product_id):
             bag_item.variations.clear()
             bag_item.variations.add(*product_variation)
         bag_item.save()
+        messages.success(request, f"Added {product.name} to your bag")
+
     return redirect("view_bag")
 
 
