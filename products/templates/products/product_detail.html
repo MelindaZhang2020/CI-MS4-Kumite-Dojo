@@ -87,7 +87,7 @@
                                 {% if product.stock <= 0 %}
                                     <input type="submit" class="btn btn-red rounded-0 text-uppercase mt-5" value="Out of stock" disabled>
                                 {% else %}
-                                    <a href="{% url 'add_to_bag' product.id %}" class="btn btn-red rounded-0 text-uppercase mt-5"><span>Add to Bag</span></a>
+                                    <button type="submit" class="btn btn-red rounded-0 text-uppercase mt-5"><span>Add to Bag</span></button>
                                 {% endif %}
                             </div>
                         </div>
