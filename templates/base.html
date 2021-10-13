@@ -141,7 +141,9 @@
             </div>
             <div id="delivery-banner" class="row text-center">
                 <div class="col bg-choco text-white">
-                    <h4 class="banner-text my-1">Contact Us to get a free trial class!</h4>                
+                    <h4 class="banner-text my-1">Contact Us to get a free trial class and get a free delivery for order over € 
+                        {{ free_delivery_delta }}!
+                    </h4>                
                 </div>            
             </div>
 
@@ -176,6 +178,6 @@
                 $('.toast').toast('show');
             </script>
         {% endblock %}
-        {% include 'includes/footer.html' %}
+        
     </body>
 </html>

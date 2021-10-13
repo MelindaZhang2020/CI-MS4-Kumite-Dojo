@@ -58,13 +58,13 @@
                                     {% for item in product.productimage_set.all %}
                                         {% if item.featured %}
                                             <a href="{% url 'product_detail' product.slug %}">
-                                                <img class="card-img-top img-fluid" src="{{ item.image.url }}" alt="{{ product.name }}">
+                                                <img class="card-img-top img-fluid product-img" src="{{ item.image.url }}" alt="{{ product.name }}">
                                             </a>
                                         {% endif %}
                                     {% endfor %}
                                 {% else %}
                                     <a href="{% url 'product_detail' product.slug %}">
-                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                        <img class="card-img-top img-fluid product-img" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                     </a>
                                 {% endif %}
                                 <div class="card-body pb-0">
@@ -127,5 +127,10 @@
 {% endblock %}
 
 {% block postloadjs %}
-    
+{{ block.super }}
+<script type="text/javascript">
+    $('.btt-link').click(function(e) {
+        window.scrollTo(0,0)
+    })
+</script>
 {% endblock %}

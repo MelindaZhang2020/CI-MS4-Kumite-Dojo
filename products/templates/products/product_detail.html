@@ -69,12 +69,14 @@
                                     {% endfor %}
                                 {% endif %}
                                 </select>
+                                {% if product.variation_set.sizes %}
                                 <label class="mr-3" for="size">Size:</label>
                                 <select name="size" class="form-control w-50" required>
                                     <option value="" disabled selected>Select</option>
                                     {% for i in product.variation_set.sizes %}
                                         <option value="{{ i.variation_value | lower }}">{{ i.variation_value | capfirst }}</option>
                                     {% endfor %}
+                                {% endif %}
                                 </select>
                             </div>
                             <div class="col-12 mt-2">

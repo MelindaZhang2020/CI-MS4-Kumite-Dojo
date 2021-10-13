@@ -45,7 +45,7 @@
                         {% for bag_item in bag_items %}
                         <tr>
                             <td class="p-3 w-25">
-                                <img src="{{ bag_item.product.productimage_set.featured.url }}" alt="{{bag_item.product.name}}" class="img-fluid rounded">
+                                <img src="{{ bag_item.product.productimage_set.first.image.url }}" alt="{{bag_item.product.name}}" class="img-fluid rounded">
                             </td>
                             <td class="py-3 w-10">
                                 <a href="{{ bag_item.product.get_url }}" class="my-0"><strong>{{ bag_item.product.name }}</strong></a><br>

@@ -45,6 +45,11 @@
                             <div class="carousel-item">
                         {% endif %}
                             <img src="/media/{{banner.img}}" class="img-fluid rounded-0" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>{{ banner.label }}</h5>
+                                    <p>{{ banner.tag }}</p>
+                                    <a href="{{ banner.url}}" class="btn btn-red">{{banner.alt_text}}</a>
+                                </div>
                             </div>
                     {% endfor %}
                             </div>
