@@ -6,53 +6,19 @@ from django.shortcuts import get_object_or_404
 from products.models import Product, Variation
 
 
-def counter(request):
-    bag_count = 0
-    if "admin" in request.path:
-        return {}
-    else:
-        try:
-            bag = Bag.objects.filter(bag_id=_bag_id(request))
-            bag_items = BagItem.objects.all().filter(bag=bag[:1])
-            for bag_item in bag_items:
-                bag_count += bag_item.quantity
-        except Bag.DoesNotExist:
-            bag_count = 0
-    return dict(bag_count=bag_count)
-
-
 def bag_contents(request):
 
     bag_items = []
     total = 0
     product_count = 0
-    bag = request.session.get("bag", {})
+    if Bag.objects.filter(bag_id=_bag_id(request)):
+        bag = Bag.objects.filter(bag_id=_bag_id(request))[0]
+        bag_items = BagItem.objects.all().filter(bag=bag)
+        for bag_item in bag_items:
+            print("Bag Item ", bag_item)
+            total = total + bag_item.sub_total()
 
-    for item_id, item_data in bag.items():
-        if isinstance(item_data, int):
-            product = get_object_or_404(Product, pk=item_id)
-            total += item_data * product.price
-            product_count += item_data
-            bag_items.append(
-                {
-                    "item_id": item_id,
-                    "quantity": item_data,
-                    "product": product,
-                }
-            )
-        else:
-            product = get_object_or_404(Product, pk=item_id)
-            for size, quantity in item_data["items_by_size"].items():
-                total += quantity * product.price
-                product_count += quantity
-                bag_items.append(
-                    {
-                        "item_id": item_id,
-                        "quantity": quantity,
-                        "product": product,
-                        "size": size,
-                    }
-                )
+        product_count = len(bag_items)
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)

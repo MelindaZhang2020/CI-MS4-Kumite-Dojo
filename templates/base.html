@@ -121,7 +121,7 @@
                             <div class="text-center position-relative">
                                 <i class="fas fa-shopping-bag fa-lg "></i>
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                    {{ bag_count }}
+                                    {{ product_count }}
                                   <span class="visually-hidden"></span>
                                 </span>
                             </div>
@@ -142,30 +142,31 @@
             <div id="delivery-banner" class="row text-center">
                 <div class="col bg-choco text-white">
                     <h4 class="banner-text my-1">Contact Us to get a free trial class and get a free delivery for order over € 
-                        {{ free_delivery_delta }}!
+                        {{ free_delivery_threshold }}!
                     </h4>                
                 </div>            
             </div>
-
         </header>
         
-        {% if messages %}
+        
             <div class="message-container">
-                {% for message in messages %}
-                    {% with message.level as level %}
-                        {% if level == 40 %}
-                            {% include 'includes/toasts/toast_error.html' %}
-                        {% elif level == 30 %}
-                            {% include 'includes/toasts/toast_warning.html' %}
-                        {% elif level == 25 %}
-                            {% include 'includes/toasts/toast_success.html' %}
-                        {% else %}
-                            {% include 'includes/toasts/toast_info.html' %}
-                        {% endif %}
-                    {% endwith %}
-                {% endfor %}
+                {% if messages %}
+                    {% for message in messages %}
+                        {% with message.level as level %}
+                            {% if level == 40 %}
+                                {% include 'includes/toasts/toast_error.html' %}
+                            {% elif level == 30 %}
+                                {% include 'includes/toasts/toast_warning.html' %}
+                            {% elif level == 25 %}
+                                {% include 'includes/toasts/toast_success.html' %}
+                            {% else %}
+                                {% include 'includes/toasts/toast_info.html' %}
+                            {% endif %}
+                        {% endwith %}
+                    {% endfor %}
+                {% endif %}
             </div>
-        {% endif %}
+        
 
         {% block page_header %}
         {% endblock %}

@@ -105,23 +105,7 @@ def view_bag(
     except ObjectDoesNotExist:
         pass  # just ignore
 
-    if total < settings.FREE_DELIVERY_THRESHOLD:
-        delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
-        free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
-    else:
-        delivery = 0
-        free_delivery_delta = 0
-    grand_total = delivery + total
-
-    context = {
-        "total": total,
-        "quantity": quantity,
-        "bag_items": bag_items,
-        "delivery": delivery,
-        "free_delivery_delta": free_delivery_delta,
-        "grand_total": grand_total,
-    }
-    return render(request, "bag/bag.html", context)
+    return render(request, "bag/bag.html")
 
 
 def remove_from_bag(request, product_id, bag_item_id):

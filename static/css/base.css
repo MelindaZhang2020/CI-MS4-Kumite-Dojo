@@ -123,6 +123,7 @@ a.category-badge > span.badge:hover {
 
 .custom-toast {
   overflow: visible;
+  opacity: 1;
 }
 
 .toast-capper {
