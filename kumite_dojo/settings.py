@@ -178,6 +178,14 @@ STANDARD_DELIVERY_PERCENTAGE = 10
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+# Stripe
+FREE_DELIVERY_THRESHOLD = 50
+STANDARD_DELIVERY_PERCENTAGE = 10
+STRIPE_CURRENCY = "usd"
+STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY")
+STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")
+STRIPE_WH_SECRET = os.environ.get("STRIPE_WH_SECRET")
+DEFAULT_FROM_EMAIL = "boutiqueado@example.com"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
