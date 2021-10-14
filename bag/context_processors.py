@@ -11,13 +11,15 @@ def bag_contents(request):
     bag_items = []
     total = 0
     product_count = 0
-    if Bag.objects.filter(bag_id=_bag_id(request)):
-        bag = Bag.objects.filter(bag_id=_bag_id(request))[0]
-        bag_items = BagItem.objects.all().filter(bag=bag)
-        for bag_item in bag_items:
-            total = total + bag_item.sub_total()
-
-        product_count = len(bag_items)
+    try:
+        if Bag.objects.filter(bag_id=_bag_id(request)):
+            bag = Bag.objects.filter(bag_id=_bag_id(request))
+            bag_items = BagItem.objects.all().filter(bag=bag[:1])
+            for bag_item in bag_items:
+                total = total + bag_item.sub_total()
+                product_count += bag_item.quantity
+    except Bag.DoesNotExist:
+        product_count = 0
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)

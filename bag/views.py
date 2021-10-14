@@ -133,8 +133,14 @@ def remove_from_bag(request, product_id, bag_item_id):
             )
         else:
             bag_item.delete()
-    except:
-        pass
+            messages.success(
+                request,
+                f"Removed 1 {product.name} to your bag",
+            )
+    except Exception as e:
+        messages.error(request, f"Error removing item: {e}")
+        return HttpResponse(status=500)
+
     return redirect("view_bag")
 
 
