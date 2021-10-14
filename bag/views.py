@@ -62,10 +62,16 @@ def add_to_bag(request, product_id):
             item = BagItem.objects.get(product=product, id=item_id)
             item.quantity += 1
             item.save()
-            messages.success(
-                request,
-                f"Added 1 {product_variation[0]} {product_variation[1]} {product.name} to your bag",
-            )
+            if product_variation:
+                messages.success(
+                    request,
+                    f"Added 1 {product_variation[0]} {product.name} to your bag",
+                )
+            else:
+                messages.success(
+                    request,
+                    f"Added 1 {product.name} to your bag",
+                )
 
         else:
             # create new bagitem
@@ -74,10 +80,16 @@ def add_to_bag(request, product_id):
                 item.variations.clear()
                 item.variations.add(*product_variation)
             item.save()
-            messages.success(
-                request,
-                f"Added 1 {product_variation[0]} {product_variation[1]} {product.name} to your bag",
-            )
+            if product_variation:
+                messages.success(
+                    request,
+                    f"Added 1 {product_variation[0]} {product.name} to your bag",
+                )
+            else:
+                messages.success(
+                    request,
+                    f"Added 1 {product.name} to your bag",
+                )
 
     else:
         bag_item = BagItem.objects.create(
@@ -89,11 +101,16 @@ def add_to_bag(request, product_id):
             bag_item.variations.clear()
             bag_item.variations.add(*product_variation)
         bag_item.save()
-        messages.success(
-            request,
-            f"Added 1 {product_variation[0]} {product_variation[1]} {product.name} to your bag",
-        )
-
+        if product_variation:
+            messages.success(
+                request,
+                f"Added 1 {product_variation[0]} {product.name} to your bag",
+            )
+        else:
+            messages.success(
+                request,
+                f"Added 1 {product.name} to your bag",
+            )
     return redirect("view_bag")
 
 
