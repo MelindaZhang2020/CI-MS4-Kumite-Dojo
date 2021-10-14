@@ -15,7 +15,6 @@ def bag_contents(request):
         bag = Bag.objects.filter(bag_id=_bag_id(request))[0]
         bag_items = BagItem.objects.all().filter(bag=bag)
         for bag_item in bag_items:
-            print("Bag Item ", bag_item)
             total = total + bag_item.sub_total()
 
         product_count = len(bag_items)

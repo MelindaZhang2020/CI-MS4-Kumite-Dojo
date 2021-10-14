@@ -48,21 +48,24 @@ def add_to_bag(request, product_id):
         # existing variations --> database
         # current variation   --> product_variation
         # item_id   --> database
-        ex_var_list = []
+        existing_variation_list = []
         id = []
         for item in bag_item:
             existing_variation = item.variations.all()
-            ex_var_list.append(list(existing_variation))
+            existing_variation_list.append(list(existing_variation))
             id.append(item.id)
 
-        if product_variation in ex_var_list:
+        if product_variation in existing_variation_list:
             # increase bagitem quantity
-            index = ex_var_list.index(product_variation)
+            index = existing_variation_list.index(product_variation)
             item_id = id[index]
             item = BagItem.objects.get(product=product, id=item_id)
             item.quantity += 1
             item.save()
-            messages.success(request, f"Added {product.name} to your bag")
+            messages.success(
+                request,
+                f"Added 1 {product_variation[0]} {product_variation[1]} {product.name} to your bag",
+            )
 
         else:
             # create new bagitem
@@ -71,7 +74,12 @@ def add_to_bag(request, product_id):
                 item.variations.clear()
                 item.variations.add(*product_variation)
             item.save()
-            messages.success(request, f"Added {product.name} to your bag")
+            print(product_variation[0])
+            print(product_variation[1])
+            messages.success(
+                request,
+                f"Added 1 {product_variation[0]} {product_variation[1]} {product.name} to your bag",
+            )
 
     else:
         bag_item = BagItem.objects.create(
@@ -83,7 +91,10 @@ def add_to_bag(request, product_id):
             bag_item.variations.clear()
             bag_item.variations.add(*product_variation)
         bag_item.save()
-        messages.success(request, f"Added {product.name} to your bag")
+        messages.success(
+            request,
+            f"Added 1 {product_variation[0]} {product_variation[1]} {product.name} to your bag",
+        )
 
     return redirect("view_bag")
 
@@ -116,6 +127,10 @@ def remove_from_bag(request, product_id, bag_item_id):
         if bag_item.quantity > 1:
             bag_item.quantity -= 1
             bag_item.save()
+            messages.success(
+                request,
+                f"Removed 1 {product.name} to your bag",
+            )
         else:
             bag_item.delete()
     except:
@@ -128,4 +143,8 @@ def remove_bag_item(request, product_id, bag_item_id):
     product = get_object_or_404(Product, id=product_id)
     bag_item = BagItem.objects.get(product=product, bag=bag, id=bag_item_id)
     bag_item.delete()
+    messages.success(
+        request,
+        f"Removed 1 {product.name} from your bag",
+    )
     return redirect("view_bag")
