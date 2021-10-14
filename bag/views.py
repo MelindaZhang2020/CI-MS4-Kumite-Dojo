@@ -74,8 +74,6 @@ def add_to_bag(request, product_id):
                 item.variations.clear()
                 item.variations.add(*product_variation)
             item.save()
-            print(product_variation[0])
-            print(product_variation[1])
             messages.success(
                 request,
                 f"Added 1 {product_variation[0]} {product_variation[1]} {product.name} to your bag",
