@@ -12,3 +12,8 @@ def index(request):
         "banners": banners,
     }
     return render(request, "home/index.html", context)
+
+
+def contact(request):
+    """A view to return the contact page"""
+    return render(request, "home/contact.html")

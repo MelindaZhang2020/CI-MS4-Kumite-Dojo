@@ -20,6 +20,10 @@ body {
   height: 300px;
   object-fit: cover;
 }
+.sub-img {
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
 .logo-font {
     font-family: 'Grechen Fuemen', cursive;
     font-size: 2rem;
@@ -209,3 +213,21 @@ a.category-badge > span.badge:hover {
   }
 }
 
+/* Footer */
+footer {
+  padding: 8px;
+  background-color: #916b64  ;
+  color: #f8f9fa;
+  text-align: center;
+}
+.social {
+  font-size: 1.5rem;
+  padding: 4px;
+  color: #f8f9fa;
+}
+.social:hover {
+  color: #9e2a2b;
+}
+.heart {
+  color: red;
+}
