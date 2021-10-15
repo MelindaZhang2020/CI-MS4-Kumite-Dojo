@@ -17,3 +17,8 @@ def index(request):
 def contact(request):
     """A view to return the contact page"""
     return render(request, "home/contact.html")
+
+
+def about(request):
+    """A view to return the about page"""
+    return render(request, "home/about.html")

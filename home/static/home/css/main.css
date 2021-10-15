@@ -60,3 +60,8 @@ input[type=text], select, textarea{
       margin-top: 0;
     }
   }
+/* about page */
+.about-img{
+  width: 400px;
+  height: 300px;
+}
