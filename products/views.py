@@ -5,9 +5,10 @@ from django.db.models.functions import Lower
 from .models import Product, Category
 from bag.models import BagItem
 from bag.views import _bag_id
+from django.http import HttpResponse
 
 
-def all_products(request):
+def all_products(request, category_name=None):
     """A view to show all products, including sorting and search quries"""
 
     products = Product.objects.all()
@@ -69,3 +70,13 @@ def product_detail(request, slug):
     }
 
     return render(request, "products/product_detail.html", context)
+
+
+def membership(request):
+    """A view to show the membership category products"""
+    category = Category.objects.filter(name=membership)
+
+    context = {
+        "product": product,
+    }
+    return render(request, "products/membership.html", context)

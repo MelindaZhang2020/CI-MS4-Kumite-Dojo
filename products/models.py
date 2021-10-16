@@ -9,6 +9,9 @@ class Category(models.Model):
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
+    def get_url(self):
+        return reverse("products_by_category", args=[self.name])
+
     def __str__(self):
         return self.name
 

@@ -18,7 +18,6 @@ body {
 .product-img {
   width: 200px;
   height: 300px;
-  object-fit: cover;
 }
 .sub-img {
   display: flex !important;
