@@ -69,3 +69,8 @@ input[type=text], select, textarea{
   width: 200px;
   height: 300px;
 }
+.classes-img {
+  width: 350px;
+  height: 250px;
+  margin:10px;
+}

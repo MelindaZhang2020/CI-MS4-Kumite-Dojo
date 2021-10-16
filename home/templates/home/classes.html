@@ -1,0 +1,251 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/main.css' %}">
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock%}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="title mb-4 text-center">Classes</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card mb-2 col-lg-6 col-md-12">
+            <div class="row no-gutters">
+                <div class="col-12">
+                    <img src="{{MEDIA_URL}}classes-img/karate.webp" class="classes-img" alt="group of people doing Karate">
+                </div>
+                <div class="col-12">
+                    <div class="card-body">
+                        <h5 class="card-title">Adult and Children Karate Classes</h5>
+                        <p class="card-text">
+                            Karate means &quot;empty hand&quot; in 
+                            Japanese and anybody from all ages can master kicks, punches and strikes in 
+                            this all round system. As a matter of fact, you can easily get your entire 
+                            family involved with Karate. If you are curious about what would be involved 
+                            in a typical Karate class, this article will give you a basic introduction.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3 col-lg-6 col-md-12">
+            <div class="row no-gutters">
+                <div class="col-12">
+                    <img src="{{MEDIA_URL}}classes-img/bojutsu.jpg" class="classes-img" 
+                    alt="group of people training bojutsu">
+                </div>
+                <div class="col-12">
+                    <div class="card-body">
+                        <h5 class="card-title">Adult and Children bojutsu Classes</h5>
+                        <p class="card-text">
+                            Bōjutsu, translated from Japanese as "staff technique", is the martial art of stick fighting using a bō, 
+                            which is the Japanese word for staff.Some techniques involve slashing, swinging, and stabbing with the staff. 
+                            Bo training is not only fun, it improves coordination, builds strength in the upper body, is low impact and gives you an 
+                            understanding of weapon movement.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3 col-lg-6 col-md-12">
+            <div class="row no-gutters">
+                <div class="col-12 ">
+                    <img src="{{MEDIA_URL}}classes-img/tai-chi.jpg" class="classes-img" 
+                    alt="group of people doing tai-chi">
+                </div>
+                <div class="col-12">
+                    <div class="card-body">
+                        <h5 class="card-title">Tai-chi Classes</h5>
+                        <p class="card-text">
+                            Tai chi is an internal Chinese martial art practiced for defense training, health benefits, 
+                            it is practiced for reasons including competitive wrestling, competitive demonstrations, 
+                            and health/longevity.and meditation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3 col-lg-6 col-md-12">
+            <div class="row no-gutters">
+                <div class="col-12">
+                    <img src="{{MEDIA_URL}}classes-img/fight-fit.jpg" class="classes-img" 
+                    alt="group of people doing fighting-fit classes">
+                </div>
+                <div class="col-12">
+                    <div class="card-body">
+                        <h5 class="card-title">Fighting Fit Classes</h5>
+                        <p class="card-text">
+                            Fighting Fit is ideal for anyone keen to learn proper boxing 
+                            techniques while getting fit. This class is a full body workout 
+                            incorporating weight training, cardiovascular and resistance exercises 
+                            to help you build a fighter’s endurance, an iron core, and shed any 
+                            excess fat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3 col-lg-6 col-md-12">
+            <div class="row no-gutters">
+                <div class="col-6">
+                    <img src="{{MEDIA_URL}}classes-img/tiger-tots.jpg" class="classes-img" 
+                    alt="group of kida doing karate">
+                </div>
+                <div class="col-12">
+                    <div class="card-body">
+                        <h5 class="card-title">Tiger tots Classes</h5>
+                        <p class="card-text">
+                            Kumite Dojo offers the best Kids Karate Classes to kids age 5 onwards. 
+                            They are a great way for children to improve their concentration, agility, 
+                            balance, coordination, fitness and confidence. In  also a great environment 
+                            for them to make friends, learn to be more respectful and most importantly, 
+                            have fun!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3 col-lg-6 col-md-12">
+            <div class="row no-gutters">
+                <div class="col-12">
+                    <img src="{{MEDIA_URL}}classes-img/kick-boxing.jpg" class="classes-img" 
+                    alt="group of people doing kickboxing">
+                </div>
+                <hr>
+                <div class="col-12">
+                    <div class="card-body">
+                        <h5 class="card-title">Kicboxing Classes</h5>
+                        <p class="card-text">
+                            Kickboxing is a group of stand-up combat sports based on kicking 
+                            and punching, historically developed from karate mixed with boxing. 
+                            Kickboxing is practiced for self-defence, general fitness, or as a 
+                            contact sport. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="title mb-4 text-center">Timetable</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Class Time</th>
+                        <th scope="col">Monday</th>
+                        <th scope="col">Tuesday</th>
+                        <th scope="col">Wednesday</th>
+                        <th scope="col">Thursday</th>
+                        <th scope="col">Friday</th>
+                        <th scope="col">Saturday</th>
+                        <th scope="col">Sunday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">9:00-10:00</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Karate Adult Beginner</td>
+                        <td></td>
+                        <td>Tiger Tots</td>
+                        <td>Karate Mid-level</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">10:30-11:30</th>
+                        <td>Tai-chi</td>
+                        <td></td>
+                        <td>Fighting Fit</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Tiger Tots</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">12:00-13:00</th>
+                        <td></td>
+                        <td>Karate Kids Beginner</td>
+                        <td></td>
+                        <td></td>
+                        <td>Karate Blackbelt</td>
+                        <td>Fighting Fit</td>
+                        <td>Tiger Tots</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">12:00-13:00</th>
+                        <td>Bojutsu</td>
+                        <td>Karate Adult Beginner</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Kickboxing</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">14:00-15:00</th>
+                        <td></td>
+                        <td>Bojutsu</td>
+                        <td>Tai-chi</td>
+                        <td></td>
+                        <td></td>
+                        <td>Karate Mid-level</td>
+                        <td>Kickboxing</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">15:30-16:30</th>
+                        <td>Tai-chi</td>
+                        <td>Karate Kids Beginner</td>
+                        <td>Tiger Tots</td>
+                        <td>Tiger Tots</td>
+                        <td>Tiger Tots</td>
+                        <td>Karate Blackbelt</td>
+                        <td>Tiger Tots</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">17:00-18:00</th>
+                        <td>Karate Kids Beginner</td>
+                        <td>Karate Kids Beginner</td>
+                        <td>Karate Kids Beginner</td>
+                        <td>Karate Kids Beginner</td>
+                        <td>Karate Kids Beginner</td>
+                        <td>Fighting Fit</td>
+                        <td>Bojutsu</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">19:00-20:00</th>
+                        <td>Karate Adult Beginner</td>
+                        <td>Karate Mid-level</td>
+                        <td>Karate Blackbelt</td>
+                        <td>Karate Adult Beginner</td>
+                        <td>Karate Mid level</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

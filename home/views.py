@@ -22,3 +22,8 @@ def contact(request):
 def about(request):
     """A view to return the about page"""
     return render(request, "home/about.html")
+
+
+def classes(request):
+    """A view to return the classes page"""
+    return render(request, "home/classes.html")
