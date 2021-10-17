@@ -9,7 +9,6 @@ html {
 body {
     color: #555; 
     font-family: 'Lato';
-    height: 120vh
 }
 .product-img {
   width: 200px;
@@ -110,6 +109,9 @@ a.category-badge > span.badge:hover {
 .logo-footer {
   width: 75px;
   height: 75px;
+}
+ .margin {
+  margin-bottom: 5rem;
 }
 /* ------------------------------- bootstrap toasts */
 

@@ -29,8 +29,9 @@ input[type=text], select, textarea{
   .form-container {
     border-radius: 5px;
     background-color: #f2f2f2;
-    padding: 20px;
-    margin-top: 50px;
+    padding: 10px;
+    margin-top: 20px;
+    
   }
   
   /* Floating column for labels: 25% width */
