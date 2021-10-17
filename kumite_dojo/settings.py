@@ -47,11 +47,13 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    # "allauth.socialaccount.providers.facebook",
+    # "allauth.socialaccount.providers.google",
+    # "allauth.socialaccount.providers.github",
     # custom
     "home",
     "products",
     "bag",
-    # "accounts",
     "checkout",
     "profiles",
     # other
@@ -111,7 +113,6 @@ AUTHENTICATION_BACKENDS = [
 
 WSGI_APPLICATION = "kumite_dojo.wsgi.application"
 
-# AUTH_USER_MODEL = "accounts.Account"
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
