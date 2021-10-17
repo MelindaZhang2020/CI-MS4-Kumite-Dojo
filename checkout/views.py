@@ -19,7 +19,7 @@ def cache_checkout_data(request):
         stripe.PaymentIntent.modify(
             pid,
             metadata={
-                "bag": json.dumps(Bag.objects.get(bag_id=_bag_id(request))),
+                "bag": Bag.objects.get(bag_id=_bag_id(request)),
                 "save_info": request.POST.get("save_info"),
                 "username": request.user,
             },
@@ -40,6 +40,7 @@ def checkout(request):
 
     if request.method == "POST":
         bag = Bag.objects.get(bag_id=_bag_id(request))
+        print(bag)
         bag_items = BagItem.objects.all().filter(bag=bag)
         # store all billing information inside Order table
         form_data = {
@@ -55,8 +56,11 @@ def checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save()
-
+            order = order_form.save(commit=False)
+            pid = request.POST.get("client_secret").split("_secret")[0]
+            order.stripe_pid = pid
+            order.original_bag = bag
+            order.save()
             # move the bag items to Order Product table
             for bag_item in bag_items:
                 order_line_item = OrderLineItem()
