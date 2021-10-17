@@ -11,20 +11,6 @@
 
 
 {% block content %}
-    <!-- <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-7 col-md-6 mx-auto mt-5">
-                <h1 class="diaplay-4 tag-line text-black">
-                    Official Shotokan Karate Club in Dublin
-                </h1>
-                <h3 class="sub">Group & Private Classes 7 days a week!</h3>
-                <h4>
-                    <a href="" class="join-now-button btn btn-lg rounded-0 text-uppercase">Join Now</a>
-                </h4>
-            </div>
-        </div>
-    </div> -->
-    <!-- Home Slider -->
     <section class="section-intro padding-y-sm">
         <div class="container">
             <div id="carouselExampleIndicators" class="carousel slide intro-banner-wrap" data-ride="carousel">
@@ -73,13 +59,23 @@
             </header>
             <div class="row">
                 {% for product in products %}
-                <div class="col-md-3">
-                    <div class="card card-product-grid">
-                        <a href="{% url 'product_detail' product.slug %}">
-                            <img class="card-img-top" src="{{ product.productimage_set.first.image.url }}" alt="{{ product.name }}">
-                        </a>
-                        <div class="card-body">
-                            <h6 class="card-title">{{ product.name }}</h6>
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                    
+                    <div class="card h-100 border-0">
+                        
+                        {% if product.productimage_set.all %}
+                            <a href="{% url 'product_detail' product.slug %}">
+                                <img class="card-img-top" src="{{ product.productimage_set.first.image.url }}" alt="{{ product.name }}">
+                            </a>
+                        {% else %}
+                            <a href="{% url 'product_detail' product.slug %}">
+                                <img class="card-img-top img-fluid product-img" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                            </a>
+                        {% endif %}
+                        <div class="card-body pb-0">
+                            <p class="mb-0">{{ product.name }}</p>
+                        </div>
+                        <div class="card-footer bg-white pt-0 border-0 text-left">
                             <p class="card-text">Rating: {{ product.rating }}</p>
                             <div class="rating-star">
                                 <span>
@@ -88,32 +84,16 @@
                                     <i class="fa fa-star{% if product.rating < 2.5 %}-o{% elif product.rating >= 2.5 and product.rating < 3 %}-half-o {% endif %}" aria-hidden="true"></i>
                                     <i class="fa fa-star{% if product.rating < 3.5 %}-o{% elif product.rating >= 3.5 and product.rating < 4 %}-half-o {% endif %}" aria-hidden="true"></i>
                                     <i class="fa fa-star{% if product.rating < 4.5 %}-o{% elif product.rating >= 4.5 and product.rating < 5 %}-half-o {% endif %}" aria-hidden="true"></i>
-                                    </span>
+                                </span>
                             </div>
                         </div>
+                       
                     </div>
+                    
                 </div>
                 {% endfor %}
             </div>
         </div>
-        <!-- <div class="row row-cols-1 row-cols-md-2 g-4">
-        </div>
-    </section>
-    <div class="container">
-        
-            {% for product in products %}
-            <div class="col">
-              <div class="card">
-                <a href="{% url 'product_detail' product.slug %}">
-                    <img class="card-img-top" src="{{ product.productimage_set.first.image.url }}" alt="{{ product.name }}">
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title">{{ product.name }}</h5>
-                  <p class="card-text">{{ product.description|truncatewords:15 }}</p>
-                </div>
-              </div>
-            </div>
-            {% endfor %}   
-        </div> -->
-    </section>
+     </section>   
+
 {% endblock%}

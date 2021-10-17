@@ -7,13 +7,9 @@ html {
     box-sizing: border-box;
  }
 body {
-    /* background: url("../img/hero-image.jpg") no-repeat center
-      center fixed; */
-    /* background-size: cover;*/
-    /* height: calc(100vh - 164px);  */
+    height: 100vh; 
     color: #555; 
     font-family: 'Lato';
-    
 }
 .product-img {
   width: 200px;
@@ -214,7 +210,7 @@ a.category-badge > span.badge:hover {
 
 /* Footer */
 footer {
-  margin-top: 50px;
+  margin-top: 11rem;
   padding: 8px;
   background-color: #916b64  ;
   color: #f8f9fa;
