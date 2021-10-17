@@ -7,9 +7,9 @@ html {
     box-sizing: border-box;
  }
 body {
-    height: 100vh; 
     color: #555; 
     font-family: 'Lato';
+    height: 120vh
 }
 .product-img {
   width: 200px;
@@ -209,12 +209,15 @@ a.category-badge > span.badge:hover {
 }
 
 /* Footer */
+
 footer {
-  margin-top: 11rem;
   padding: 8px;
   background-color: #916b64  ;
   color: #f8f9fa;
   text-align: center;
+  clear: both;
+  position: fixed;
+  bottom: 0;
 }
 .social {
   font-size: 1.5rem;

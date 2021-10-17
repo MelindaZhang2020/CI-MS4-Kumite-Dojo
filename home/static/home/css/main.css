@@ -75,3 +75,6 @@ input[type=text], select, textarea{
   height: 250px;
   margin:10px;
 }
+.card {
+  margin-bottom: 50rem;
+}
