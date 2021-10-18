@@ -21,6 +21,7 @@ body {
   display: flex !important;
   flex-wrap: wrap !important;
 }
+
 .logo-font {
     font-family: 'Grechen Fuemen', cursive;
     font-size: 2rem;

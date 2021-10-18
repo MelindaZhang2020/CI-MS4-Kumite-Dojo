@@ -6,7 +6,7 @@ from .models import Product, Category
 from bag.models import BagItem
 from bag.views import _bag_id
 from django.http import HttpResponse
-from .forms import ProductForm
+from .forms import ProductForm, ProductImageForm
 
 
 def all_products(request, category_name=None):
@@ -85,10 +85,25 @@ def membership(request):
 
 def add_product(request):
     """Add a product to the store"""
-    form = ProductForm()
+    if request.method == "POST":
+        product_form = ProductForm(request.POST, request.FILES)
+        product_image_form = ProductImageForm(request.POST, request.FILES)
+        if product_form.is_valid() and product_image_form.is_valid():
+            product_image = product_image_form.save(commit=False)
+            product = product_form.save()
+            messages.success(request, "Successfully added product!")
+            return redirect(reverse("product_detail", args=[product.slug]))
+        else:
+            messages.error(
+                request, "Failed to add product. Please ensure the form is valid."
+            )
+    else:
+        product_form = ProductForm()
+        product_image_form = ProductImageForm()
     template = "products/add_product.html"
     context = {
-        "form": form,
+        "product_form": product_form,
+        "product_image_form": product_image_form,
     }
 
     return render(request, template, context)
