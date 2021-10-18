@@ -6,6 +6,7 @@ from .models import Product, Category
 from bag.models import BagItem
 from bag.views import _bag_id
 from django.http import HttpResponse
+from .forms import ProductForm
 
 
 def all_products(request, category_name=None):
@@ -80,3 +81,14 @@ def membership(request):
         "product": product,
     }
     return render(request, "products/membership.html", context)
+
+
+def add_product(request):
+    """Add a product to the store"""
+    form = ProductForm()
+    template = "products/add_product.html"
+    context = {
+        "form": form,
+    }
+
+    return render(request, template, context)

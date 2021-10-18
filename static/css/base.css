@@ -116,7 +116,9 @@ a.category-badge > span.badge:hover {
 .margin {
   margin-bottom: 5rem;
 }
-
+.margin-add-product-form{
+  margin-bottom: 10rem;
+}
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
