@@ -30,7 +30,10 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "d849-2a02-8084-81a0-5380-309e-1e9c-22a6-c4f8.ngrok.io"]
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "6467-2a02-8084-81a0-5380-8901-616d-4ea-b731.ngrok.io",
+]
 
 
 # Application definition
@@ -184,7 +187,7 @@ STRIPE_CURRENCY = "eur"
 STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY")
 STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")
 STRIPE_WH_SECRET = os.environ.get("STRIPE_WH_SECRET")
-DEFAULT_FROM_EMAIL = "boutiqueado@example.com"
+DEFAULT_FROM_EMAIL = "kumitedojo@example.com"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

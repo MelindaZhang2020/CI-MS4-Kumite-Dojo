@@ -42,7 +42,6 @@ def checkout(request):
 
     if request.method == "POST":
         bag = Bag.objects.get(bag_id=_bag_id(request))
-        print(bag)
         bag_items = BagItem.objects.all().filter(bag=bag)
         # store all billing information inside Order table
         form_data = {
