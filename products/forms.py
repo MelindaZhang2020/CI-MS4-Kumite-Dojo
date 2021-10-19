@@ -1,5 +1,5 @@
 from django import forms
-
+from .widgets import CustomClearableFileInput
 from .models import Product, Category, ProductImage, Variation
 
 
@@ -22,6 +22,10 @@ class ProductImageForm(forms.ModelForm):
     class Meta:
         model = ProductImage
         fields = ["image", "featured", "active"]
+
+    image = forms.ImageField(
+        label="Image", required=False, widget=CustomClearableFileInput
+    )
 
 
 # class ProductVariationForm(forms.ModelForm):
