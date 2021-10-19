@@ -57,10 +57,10 @@ def all_products(request, category_name=None):
     return render(request, "products/products.html", context)
 
 
-def product_detail(request, slug):
+def product_detail(request, product_slug):
     """A view to show individual product details"""
 
-    product = get_object_or_404(Product, slug=slug)
+    product = get_object_or_404(Product, slug=product_slug)
     in_bag = BagItem.objects.filter(
         bag__bag_id=_bag_id(request), product=product
     ).exists()
@@ -73,24 +73,20 @@ def product_detail(request, slug):
     return render(request, "products/product_detail.html", context)
 
 
-def membership(request):
-    """A view to show the membership category products"""
-    category = Category.objects.filter(name=membership)
-
-    context = {
-        "product": product,
-    }
-    return render(request, "products/membership.html", context)
-
-
 def add_product(request):
     """Add a product to the store"""
     if request.method == "POST":
         product_form = ProductForm(request.POST, request.FILES)
         product_image_form = ProductImageForm(request.POST, request.FILES)
-        if product_form.is_valid() and product_image_form.is_valid():
+        # product_variation_form = ProductVariationForm(request.POST, request.FILES)
+        if (
+            product_form.is_valid()
+            and product_image_form.is_valid()
+            # and product_variation_form.is_valid()
+        ):
             product_image = product_image_form.save(commit=False)
             product = product_form.save()
+            # product_variation = product_variation_form.save()
             messages.success(request, "Successfully added product!")
             return redirect(reverse("product_detail", args=[product.slug]))
         else:
@@ -100,10 +96,57 @@ def add_product(request):
     else:
         product_form = ProductForm()
         product_image_form = ProductImageForm()
+        # product_variation_form = ProductVariationForm()
     template = "products/add_product.html"
     context = {
         "product_form": product_form,
         "product_image_form": product_image_form,
+        # "product_variation_form": product_variation_form,
     }
 
     return render(request, template, context)
+
+
+def edit_product(request, product_id):
+    """Edit a product in the store"""
+    product = get_object_or_404(Product, pk=product_id)
+    if request.method == "POST":
+        product_form = ProductForm(request.POST, request.FILES, instance=product)
+        product_image_form = ProductImageForm(
+            request.POST, request.FILES, instance=product
+        )
+        if product_form.is_valid() and ProductImageForm.is_valid():
+            product_form.save()
+            product_image_form.save()
+            messages.success(request, "Successfully updated product!")
+            return redirect(reverse("product_detail", args=[product.id]))
+        else:
+            messages.error(
+                request, "Failed to update product. Please ensure the form is valid."
+            )
+    else:
+        product_form = ProductForm(instance=product)
+        product_image_form = ProductImageForm(instance=product)
+        messages.info(request, f"You are editing {product.name}")
+
+    template = "products/edit_product.html"
+    context = {
+        "product_form": product_form,
+        "product": product,
+        "product_image_form": product_image_form,
+    }
+
+    return render(request, template, context)
+
+
+def delete_product(request, product_id):
+    """Delete a product from the store"""
+    if not request.user.is_superuser:
+        messages.error(request, "Sorry, only store owners can do that.")
+        return redirect(reverse("home"))
+
+    product = get_object_or_404(Product, pk=product_id)
+
+    product.delete()
+    messages.success(request, "Product deleted!")
+    return redirect(reverse("products"))
