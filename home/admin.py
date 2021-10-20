@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Banner
+from .models import Banner, Contact
 
 
 class BannerAdmin(admin.ModelAdmin):
@@ -7,3 +7,4 @@ class BannerAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Banner, BannerAdmin)
+admin.site.register(Contact)

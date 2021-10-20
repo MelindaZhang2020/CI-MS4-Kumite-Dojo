@@ -24,13 +24,14 @@
     </div>
 </div>
 <div class="form-container col-8 offset-2 p-5 ">
-    <form action="action_page.php">
+    <form method="POST" class="was-validated">
+      {% csrf_token %}
       <div class="row">
         <div class="col-25">
           <label for="fname">First Name</label>
         </div>
         <div class="col-75">
-          <input type="text" id="fname" name="firstname" placeholder="Your name..">
+          <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
         </div>
       </div>
       <div class="row">
@@ -38,7 +39,7 @@
           <label for="lname">Last Name</label>
         </div>
         <div class="col-75">
-          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+          <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
         </div>
       </div>
       <div class="row">
@@ -46,7 +47,7 @@
           <label for="country">Email</label>
         </div>
         <div class="col-75">
-          <input type="text" id="email" name="email" placeholder="Your Email..">
+          <input type="text" id="email" name="email" placeholder="Your Email.." required>
         </div>
       </div>
       <div class="row">
@@ -54,7 +55,7 @@
           <label for="subject">Message</label>
         </div>
         <div class="col-75">
-          <textarea id="subject" name="subject" placeholder="Your message.." style="height:200px"></textarea>
+          <textarea id="subject" name="message" placeholder="Your message.." style="height:200px" required></textarea>
         </div>
       </div>
       <div class="row">
