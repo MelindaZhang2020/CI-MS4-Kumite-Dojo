@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from products.models import Product
 from .models import Banner, Contact
 from django.contrib import messages
@@ -25,7 +25,7 @@ def classes(request):
     return render(request, "home/classes.html")
 
 
-def contact(request):
+def contact_submit(request):
     """A view to return the contact page"""
     if request.method == "POST":
         contact = Contact()
@@ -42,4 +42,9 @@ def contact(request):
             request,
             f"Your message has been sent, thank you for contacting us!",
         )
+    return redirect(reverse("home"))
+
+
+def contact_form(request):
+    """A view to render the contact form page"""
     return render(request, "home/contact.html")
