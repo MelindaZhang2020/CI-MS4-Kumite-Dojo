@@ -216,6 +216,11 @@ a.category-badge > span.badge:hover {
     padding-top: 164px;
   }
 }
+@media (max-width: 414px){
+  .footer-container {
+    font-size: 0.8rem;
+  }
+}
 
 /* Footer */
 

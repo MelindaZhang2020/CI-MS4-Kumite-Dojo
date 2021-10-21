@@ -62,20 +62,24 @@ input[type=text], select, textarea{
       margin-top: 0;
     }
   }
+  
 /* about page */
 .about-img{
   width: 330px;
   height: 220px;
 }
 .instructor-img {
-  width: 200px;
-  height: 300px;
+  width: 100%;
+  height: auto;
 }
 .classes-img {
-  width: 350px;
-  height: 250px;
-  margin:10px;
+  width: 100%;
+  height: auto;
+  margin:5px;
 }
 .card {
   margin-bottom: 50rem;
+}
+.margin {
+ margin-bottom: 10rem;
 }
