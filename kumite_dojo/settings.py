@@ -30,6 +30,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = "DEVELOPMENT" in os.environ
+
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "6467-2a02-8084-81a0-5380-8901-616d-4ea-b731.ngrok.io",
@@ -51,9 +52,6 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
-    # "allauth.socialaccount.providers.facebook",
-    # "allauth.socialaccount.providers.google",
-    # "allauth.socialaccount.providers.github",
     # custom
     "home",
     "products",
