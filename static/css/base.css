@@ -54,6 +54,10 @@ body {
   color: white;
 }
 
+.overflow {
+  overflow-y: scroll;
+}
+
 .join-now-button:hover,
 .join-now-button:active,
 .join-now-button:focus,
@@ -94,6 +98,13 @@ a.category-badge > span.badge:hover {
   bottom: 60px;
   right: 10px;
 }
+.btt-btn-mobile{
+  height: 42px;
+  width: 42px;
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+}
 .update-link,
 .remove-item,
 .btt-link {
@@ -116,6 +127,9 @@ a.category-badge > span.badge:hover {
 }
 .margin {
   margin-bottom: 5rem;
+}
+.margin-register {
+  margin-bottom: 10rem;
 }
 .margin-add-product-form{
   margin-bottom: 10rem;

@@ -1,0 +1,9 @@
+{% if bag_item.product.productimage_set.all %}
+    <a href="{{ bag_item.product.productimage_set.first.image.url }}" target="blank">
+        <img src="{{ bag_item.product.productimage_set.first.image.url }}" alt="{{bag_item.product.name}}" class="img-fluid rounded">
+    </a>
+{% else %}
+    <a href="{{ MEDIA_URL }}noimage.png" target="blank">
+        <img class="card-img-top img-fluid noimage" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+    </a>
+{% endif %}
