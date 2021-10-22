@@ -1,1 +1,1 @@
-web: gunicorn kumite-dojo.wsgi:application
+web: gunicorn kumite_dojo.wsgi:application
