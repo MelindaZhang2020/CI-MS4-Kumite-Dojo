@@ -33,7 +33,6 @@ DEBUG = "DEVELOPMENT" in os.environ
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
-    "6467-2a02-8084-81a0-5380-8901-616d-4ea-b731.ngrok.io",
     "kumite-dojo.herokuapp.com",
 ]
 
@@ -212,6 +211,7 @@ STRIPE_CURRENCY = "eur"
 STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY")
 STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")
 STRIPE_WH_SECRET = os.environ.get("STRIPE_WH_SECRET")
+DEFAULT_FROM_EMAIL = "kumitedojo@example.com"
 
 # Email
 if "DEVELOPMENT" in os.environ:
