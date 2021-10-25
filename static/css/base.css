@@ -338,3 +338,12 @@ color: #17a2b8; /* text-info */
   border-color: #dc3545;
   border-radius: 0;
 }
+/* 404 page */
+
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

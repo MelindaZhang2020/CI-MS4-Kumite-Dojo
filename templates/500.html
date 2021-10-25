@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_title %} - 500{% endblock %}
+{% block content %}
+<div class="margin">
+    <div class="center">
+        <img src="{{MEDIA_URL}}500.jpg" alt="500 image">
+        <h1>Ooops, some problem here!</h1>
+        <div>
+            <a href="{% url 'products' %}" class="btn btn-outline-dark mt-2">
+                <span >
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                Back to the products!
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
