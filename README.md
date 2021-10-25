@@ -266,15 +266,15 @@ Account security is covered by Django's allauth.
 
 #### **CRUD functionality**
 
-All users:
+*All users:*
 
 - Read all products
 
-Registered users:
+*Registered users:*
 
 - Update their delivery details
 
-Super users:
+*Super users:*
 
 - Create, update and delete any products
 
