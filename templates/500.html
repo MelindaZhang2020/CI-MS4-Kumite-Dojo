@@ -4,14 +4,14 @@
 {% block content %}
 <div class="margin">
     <div class="center">
-        <img src="{{MEDIA_URL}}500.jpg" alt="500 image">
+        <img src="{{MEDIA_URL}}500.jpg" alt="500 error image">
         <h1>Ooops, some problem here!</h1>
         <div>
-            <a href="{% url 'products' %}" class="btn btn-outline-dark mt-2">
+            <a href="{% url 'home' %}" class="btn btn-outline-dark mt-2">
                 <span >
                     <i class="fas fa-chevron-left"></i>
                 </span>
-                Back to the products!
+                Back to the Home Page!
             </a>
         </div>
     </div>
