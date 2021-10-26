@@ -8,6 +8,8 @@ My Sensei Seamus O'Dowd is a 6th Dan black belt. He has been teaching Karate for
 
 This website is a mockup site designed for Sensei Seamus's Dojo.
 
+![mockup](static/img/all-devices-black.png)
+
 ## [Live site](CI-MS4-kumite-dojo.heroku.com)
 
 ## [Contents](#contents)
@@ -154,6 +156,22 @@ A relational database is best suited to this project given the number of relatio
 #### **OrderLineItem**
 
 - This models stores each product in each order by its name, size, quantity and a subtotal.
+
+#### **Bag**
+
+- A bag has been create each time a lineitem has been added to the bag along with a bag id,and deleted after each checkout.
+
+#### **BagItem**
+
+- This model has a foriegnkey relation to product model, and many to mang relation with the variation model.
+
+#### **Banner**
+
+- This model generates the home page hero images slides.
+
+#### **Contact**
+
+- This model sends the users' name, email and messages into admin.
 
 [Back to contents](#contents) ⬆️
 
@@ -783,6 +801,8 @@ https://kumite-dojo.herokuapp.com/checkout/wh/
 [Back to contents](#contents) ⬆️
 
 ## **Testing**
+
+Full details of testing can be found [here.](testing.md)
 
 [Back to contents](#contents) ⬆️
 
