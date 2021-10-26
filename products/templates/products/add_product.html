@@ -28,6 +28,9 @@
                     {% for field in product_form %}
                         {{ field | as_crispy_field }}
                     {% endfor %}
+                    {% for field in product_variation_form %}
++                        {{ field | as_crispy_field }}
++                    {% endfor %}
                     {% for field in product_image_form %}
                         {% if field.name != 'image' %}
                             {{ field | as_crispy_field }}

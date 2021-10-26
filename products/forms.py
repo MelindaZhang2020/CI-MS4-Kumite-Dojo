@@ -28,19 +28,7 @@ class ProductImageForm(forms.ModelForm):
     )
 
 
-# class ProductVariationForm(forms.ModelForm):
-#     class Meta:
-#         model = Variation
-#         fields = ["variation_category", "variation_value"]
-
-#     def __init__(self, *args, **kwargs):
-#         super().__init__(*args, **kwargs)
-#         category = Variation.variation_category_choice.all()
-#         value = Variation.variation_value.all()
-
-#         self.fields["variation_category"].choices = category
-#         for field_name, field in self.fields.items():
-#             field.widget.attrs["class"] = "border-black rounded-0"
-#         self.fields["variation_value"].choices = value
-#         for field_name, field in self.fields.items():
-#             field.widget.attrs["class"] = "border-black rounded-0"
+class ProductVariationForm(forms.ModelForm):
+    class Meta:
+        model = Variation
+        fields = ["variation_category", "variation_value"]

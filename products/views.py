@@ -2,11 +2,11 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Product, Category
+from .models import Product, Category, ProductImage, Variation
 from bag.models import BagItem
 from bag.views import _bag_id
 from django.http import HttpResponse
-from .forms import ProductForm, ProductImageForm
+from .forms import ProductForm, ProductImageForm, ProductVariationForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -84,17 +84,31 @@ def add_product(request):
     if request.method == "POST":
         product_form = ProductForm(request.POST, request.FILES)
         product_image_form = ProductImageForm(request.POST, request.FILES)
-        # product_variation_form = ProductVariationForm(request.POST, request.FILES)
+        product_variation_form = ProductVariationForm(request.POST, request.FILES)
         if (
             product_form.is_valid()
             and product_image_form.is_valid()
-            # and product_variation_form.is_valid()
+            and product_variation_form.is_valid()
         ):
-            product_image = product_image_form.save(commit=False)
             product = product_form.save()
-            # product_variation = product_variation_form.save()
+            product_image = ProductImage(
+                product=product,
+                image=product_image_form.cleaned_data["image"],
+                featured=product_image_form.cleaned_data["featured"],
+                active=product_image_form.cleaned_data["active"],
+            )
+            product_image.save()
+            product_variation = Variation(
+                product=product,
+                variation_category=product_variation_form.cleaned_data[
+                    "variation_category"
+                ],
+                variation_value=product_variation_form.cleaned_data["variation_value"],
+            )
+            product_variation.save()
             messages.success(request, "Successfully added product!")
             return redirect(reverse("product_detail", args=[product.slug]))
+
         else:
             messages.error(
                 request, "Failed to add product. Please ensure the form is valid."
@@ -102,12 +116,12 @@ def add_product(request):
     else:
         product_form = ProductForm()
         product_image_form = ProductImageForm()
-        # product_variation_form = ProductVariationForm()
+        product_variation_form = ProductVariationForm()
     template = "products/add_product.html"
     context = {
         "product_form": product_form,
         "product_image_form": product_image_form,
-        # "product_variation_form": product_variation_form,
+        "product_variation_form": product_variation_form,
     }
 
     return render(request, template, context)
@@ -121,23 +135,34 @@ def edit_product(request, product_id):
         return redirect(reverse("home"))
 
     product = get_object_or_404(Product, pk=product_id)
+    product_image = get_object_or_404(ProductImage, product__pk=product_id)
+    product_variation = get_object_or_404(Variation, product__pk=product_id)
     if request.method == "POST":
         product_form = ProductForm(request.POST, request.FILES, instance=product)
         product_image_form = ProductImageForm(
             request.POST, request.FILES, instance=product
         )
-        if product_form.is_valid() and ProductImageForm.is_valid():
+        product_variation_form = ProductVariationForm(
+            request.POST, request.FILES, instance=product
+        )
+        if (
+            product_form.is_valid()
+            and product_image_form.is_valid()
+            and product_variation_form.is_valid()
+        ):
             product_form.save()
             product_image_form.save()
+            product_variation_form.save()
             messages.success(request, "Successfully updated product!")
-            return redirect(reverse("product_detail", args=[product.id]))
+            return redirect(reverse("product_detail", args=[product.slug]))
         else:
             messages.error(
                 request, "Failed to update product. Please ensure the form is valid."
             )
     else:
         product_form = ProductForm(instance=product)
-        product_image_form = ProductImageForm(instance=product)
+        product_image_form = ProductImageForm(instance=product_image)
+        product_variation_form = ProductVariationForm(instance=product_variation)
         messages.info(request, f"You are editing {product.name}")
 
     template = "products/edit_product.html"
@@ -145,6 +170,7 @@ def edit_product(request, product_id):
         "product_form": product_form,
         "product": product,
         "product_image_form": product_image_form,
+        "product_variation_form": product_variation_form,
     }
 
     return render(request, template, context)

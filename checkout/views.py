@@ -82,6 +82,7 @@ def checkout(request):
                 product.stock -= bag_item.quantity
                 product.save()
             BagItem.objects.filter(bag=bag).delete()
+            bag.delete()
 
             request.session["save_info"] = "save-info" in request.POST
             return redirect(reverse("checkout_success", args=[order.order_number]))
@@ -94,8 +95,9 @@ def checkout(request):
             )
 
     else:
-        bag = Bag.objects.get(bag_id=_bag_id(request))
-        if not bag:
+        try:
+            bag = Bag.objects.get(bag_id=_bag_id(request))
+        except Bag.DoesNotExist:
             messages.error(request, "There's nothing in your bag at the moment")
             return redirect(reverse("products"))
 
