@@ -568,6 +568,7 @@ git push heroku main
 <details>
 <summary>Setting up an S3 Bucket (Amazon Simple Storage Service)</summary>
 <br>
+
 1.Create an [Amazon AWS](https://aws.amazon.com/?nc2=h_lg) account
 
 2.Search for **S3** and create a new bucket name it the same as your Heroku app(kumite-dojo)
@@ -789,13 +790,41 @@ https://kumite-dojo.herokuapp.com/checkout/wh/
 
 ### **Resources and Tutorials**
 
+- [Django Docs](https://docs.djangoproject.com/en/3.2/)
+
+- [Code Institute Boutique Ado walk through](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSF_102+Q1_2020/courseware/4201818c00aa4ba3a0dae243725f6e32/d3188bf68530497aa5fba55d07a9d7d7/)
+
+- [Coding Point - Django Tutorial for beginners](https://www.youtube.com/playlist?list=PLPp4GCMxKSjCM9AvhmF9OHyyaJsN8rsZK) - create productimage model and attach multiple images to single product.
+
+- [Django Ecommerce | Build Advanced Django Web Application](https://www.udemy.com/course/django-ecommerce-project-based-course-python-django-web-development/) - learned create variation model and variation manager from this course
+
 ### **Code modified from other sources**
+
+- [How to Customize Django Admin](https://www.youtube.com/watch?v=yEJH6sZFsAY&list=PLgnySyq8qZmrxJvJbZC1eb7PD4bu0a-sB&index=7&t=252s) - Banners and featured products
+
+- [Upload Multiple Images to a Django Model without plugins](https://soshace.com/upload-multiple-images-to-a-django-model-without-plugins/) - upload multiple images in django admin product model
+
+- [Add a Custom Favicon to your Django Web App](https://www.ordinarycoders.com/blog/article/add-a-custom-favicon-to-your-django-web-app) - add favicon to the site
 
 ### **Content**
 
+- [Martial Arts Inc](https://martialartsinc.com/) - used this site as an inspiration
+
+- [Blitzsports.com](https://www.blitzsport.com/) - all products images and descriptions
+
 ### **Media**
 
+- [pixabay](https://pixabay.com/) - logo and hero images
+
 ### **Acknowledgements**
+
+I would like to thank:
+
+- My mentor Antonio Rodriguez for his patience and generosity with his times.
+
+- Help and support from fellow students in the Slack community.
+
+- Tutor support and student care team.
 
 ### **Disclaimer**
 
