@@ -1,7 +1,7 @@
 from django.db import models
 from products.models import Product, Variation
 
-
+# Bag
 class Bag(models.Model):
     bag_id = models.CharField(max_length=250, blank=True)
     date_added = models.DateField(auto_now_add=True)
@@ -10,6 +10,7 @@ class Bag(models.Model):
         return self.bag_id
 
 
+# Bagitem
 class BagItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     variations = models.ManyToManyField(Variation, blank=True)

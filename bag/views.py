@@ -17,9 +17,12 @@ def _bag_id(request):
 
 
 def add_to_bag(request, product_id):
-    product = get_object_or_404(Product, pk=product_id)  # get the product
+    """A view to add item to the bag"""
+    # Get the product
+    product = get_object_or_404(Product, pk=product_id)
     product_variation = []
     if request.method == "POST":
+        # Get the variation
         for item in request.POST:
             key = item
             value = request.POST[key]
@@ -34,20 +37,18 @@ def add_to_bag(request, product_id):
                 pass
 
     try:
-        bag = Bag.objects.get(
-            bag_id=_bag_id(request)
-        )  # get the bag using bag_id present in the session
-
+        # Get the bag using bag_id present in the session
+        bag = Bag.objects.get(bag_id=_bag_id(request))
     except Bag.DoesNotExist:
+        # Create a new bag
         bag = Bag.objects.create(bag_id=_bag_id(request))
         bag.save()
 
     is_bag_item_exists = BagItem.objects.filter(product=product, bag=bag).exists()
     if is_bag_item_exists:
-        bag_item = BagItem.objects.filter(product=product, bag=bag)  # get the bagitem
-        # existing variations --> database
-        # current variation   --> product_variation
-        # item_id   --> database
+        # get the bagitem
+        bag_item = BagItem.objects.filter(product=product, bag=bag)
+        # get the item with the existing variation
         existing_variation_list = []
         id = []
         for item in bag_item:
@@ -74,7 +75,7 @@ def add_to_bag(request, product_id):
                 )
 
         else:
-            # create new bagitem
+            # Add new bagitem with the new variation
             item = BagItem.objects.create(product=product, quantity=1, bag=bag)
             if len(product_variation) > 0:
                 item.variations.clear()
@@ -92,11 +93,13 @@ def add_to_bag(request, product_id):
                 )
 
     else:
+        # Create the new bagitem
         bag_item = BagItem.objects.create(
             product=product,
             quantity=1,
             bag=bag,
         )
+        # Attach the variation
         if len(product_variation) > 0:
             bag_item.variations.clear()
             bag_item.variations.add(*product_variation)
@@ -135,6 +138,7 @@ def view_bag(
 
 
 def remove_from_bag(request, product_id, bag_item_id):
+    """A view for removing an item from the lineitem"""
     bag = Bag.objects.get(bag_id=_bag_id(request))
     product = get_object_or_404(Product, id=product_id)
     try:
@@ -160,6 +164,7 @@ def remove_from_bag(request, product_id, bag_item_id):
 
 
 def remove_bag_item(request, product_id, bag_item_id):
+    """A view for removing a lineitem from the bag"""
     bag = Bag.objects.get(bag_id=_bag_id(request))
     product = get_object_or_404(Product, id=product_id)
     bag_item = BagItem.objects.get(product=product, bag=bag, id=bag_item_id)

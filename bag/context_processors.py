@@ -3,11 +3,11 @@ from .views import _bag_id
 from django.conf import settings
 from decimal import Decimal
 from django.shortcuts import get_object_or_404
-from products.models import Product, Variation
+from products.models import Product
 
 
 def bag_contents(request):
-
+    """A view for passing contexts across the whole site"""
     bag_items = []
     total = 0
     product_count = 0

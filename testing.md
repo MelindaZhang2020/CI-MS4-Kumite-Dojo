@@ -22,4 +22,8 @@ Back to [README](README.md)
 
  ## **User Stories**
 
+### **Overall user expectations**
 
+#### **Easy navigation**
+
+- 

@@ -1,5 +1,4 @@
 {% load static %}
-
 <!doctype html>
 <html lang="en">
     <head>
@@ -9,32 +8,30 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% endblock %}
 
-    {% block extra_meta %}
-    {% endblock %}
-
     {% block corecss %}
+        <!-- Favicon -->
         <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"/>
+        <!-- Bootstrap 4.4 -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <!-- Custom CSS -->
         <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     {% endblock%}
 
-    {% block extra_css %}
-        
-    {% endblock %}
-
     {% block corejs %}
+        <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <!-- Fontawesome -->
         <script src="https://kit.fontawesome.com/5c1e0acb7f.js" crossorigin="anonymous"></script>
+        <!-- Bootstrap 4.4 -->
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
+        <!-- Stripe -->
         <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
-    {% block extra_js %}
-    {% endblock %}
         <title>Kumite Dojo {% block extra_title %} {% endblock %}</title>
     </head>
     <body>
@@ -46,6 +43,7 @@
                         <h2 class="logo-font list-inline-item text-black my-0"><strong>Kumite Dojo</strong></h2>
                     </a>
                 </div>
+                <!-- Searchbar -->
                 <div class="col-12 col-lg-4 my-auto py1 py-lg-0 d-none d-lg-block">
                     <form method="GET" action="{% url 'products' %}">
                         <div class="input-group w-100">
@@ -70,6 +68,7 @@
                 </div>
                 <div class="col-12 col-lg-4 my-auto py1 py-lg-0 d-none d-lg-block">
                     <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                        <!-- user icon -->
                         <li class="list-inline-item dropdown">
                             <a
                                 class="text-black nav-link"
@@ -97,6 +96,7 @@
                                 {% endif %}
                             </div>
                         </li>
+                        <!-- Bag icon -->
                         <li class="list-inline-item">
                             <a
                                 class="
@@ -130,6 +130,7 @@
                     {% include 'includes/main-nav.html' %}
                 </nav>
             </div>
+            <!-- Free class and free delivery banner -->
             <div id="delivery-banner" class="row text-center">
                 <div class="col bg-choco text-white">
                     <h4 class="banner-text my-1">Contact us to get a free trial class and get a free delivery for order over € 
@@ -138,7 +139,7 @@
                 </div>            
             </div>
         </header>
-        
+        <!-- Bootstrap Toasts message display -->
         {% if messages %}
             <div class="message-container">
                 {% for message in messages %}
@@ -157,7 +158,6 @@
             </div>
         {% endif %}
         
-
         {% block page_header %}
         {% endblock %}
 
@@ -171,6 +171,5 @@
             })
             </script>
         {% endblock %}
-        
     </body>
 </html>

@@ -180,6 +180,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+# AWS
 if "USE_AWS" in os.environ:
     # Cache control
     AWS_S3_OBJECT_PARAMETERS = {
