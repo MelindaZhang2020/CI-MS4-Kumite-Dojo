@@ -82,7 +82,7 @@
                             <a
                                 class="text-black nav-link"
                                 href="#"
-                                id="user-options"
+                                id="user-choices"
                                 data-toggle="dropdown"
                                 aria-haspopup="true"
                                 aria-expanded="false"
@@ -92,7 +92,7 @@
                                 <p class="my-0 nav-text"></p>
                                 </div>
                             </a>
-                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            <div class="dropdown-menu border-0" aria-labelledby="user-choices">
                                 {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}
                                         <a href="{% url 'add_product' %}" class="dropdown-item nav-text">Product Admin</a>

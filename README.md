@@ -72,6 +72,7 @@ As an user/potential learner, there are a few things they would like to find out
 |   | Add items to my shopping bag before registering |  Avoiding registering if not neccessary |
 |   | Search classes and products by name  |  Find specific class or products |
 |   | Choose clothes and belts size   | Customise purchases to my preference  |
+    | Contact the dojo for more informations | Make further decision          |
 | Registered User  |  Save my default delivery details | Proceed to checkout more quickly in the future   |
 |   | View my previous purchases  | Make repeat order  |
 |   | Review my shopping bag prior to checkout  | Remove/Adjust quantities  |
