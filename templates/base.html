@@ -8,6 +8,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% endblock %}
 
+    {% block extra_meta %}
+    {% endblock %}
+
     {% block corecss %}
         <!-- Favicon -->
         <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"/>
@@ -16,6 +19,9 @@
         <!-- Custom CSS -->
         <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     {% endblock%}
+
+    {% block extra_css %}
+    {% endblock %}
 
     {% block corejs %}
         <!-- jQuery -->
@@ -30,6 +36,9 @@
             crossorigin="anonymous"></script>
         <!-- Stripe -->
         <script src="https://js.stripe.com/v3/"></script>
+    {% endblock %}
+
+    {% block extra_js %}
     {% endblock %}
 
         <title>Kumite Dojo {% block extra_title %} {% endblock %}</title>
