@@ -4,21 +4,21 @@ Back to [README](README.md)
 
 ## **[Contents](#contents)**
 
- - [User Stories](#user-stories)
+[User Stories](#user-stories)
 
- - [Validator](#validator)
+[Validator](#validator)
 
- - [Lighthouse](#lighthouse)
+[Lighthouse](#lighthouse)
 
- - [Manual Testing](#manual-testing)
+[Manual Testing](#manual-testing)
 
- - [Automated](#automated)
+[Automated](#automated)
 
- - [Responsiveness](#responsiveness)
+[Responsiveness](#responsiveness)
 
- - [Resolved Issues](#resolved-issues)
+[Resolved Issues](#resolved-issues)
 
- - [Unresolved Issues](#unresolved-issues)
+[Unresolved Issues](#unresolved-issues)
 
 ## **User Stories**
 
@@ -194,6 +194,8 @@ During testing, I used Chrome DevTools lighthouse reports. I have generated a re
 
 - Add apple touch icon
 
+[Back to contents](#contents) ⬆️
+
 ## **Manual Testing**
 
 ### **Navigation**
@@ -325,8 +327,8 @@ All classes card images are displayed and responsive.
 |   |   | error message on field  | Pass  |
 |   | Just whitespace  | on submit: form won't submit  | Pass  |
 |   |   | error message on field  | Pass  |
-|   | use non numeric characters  | on submit: form won't submit  | Failed (see known bugs)  |
-|   |   | error on field | Failed (see known bugs) |
+|   | use non numeric characters  | on submit: form won't submit  | Failed (see unsolved problem)  |
+|   |   | error on field | Failed (see unsolved problem) |
 | Email Input   |  leave blank |  on submit: form won't submit  | Pass  |
 |   |   | error message on field  | Pass  |
 |   | just whitespace  | On submit: form won't submit  |  Pass |
@@ -369,9 +371,15 @@ All classes card images are displayed and responsive.
 |   |   |   |   |
 
 
+[Back to contents](#contents) ⬆️
 
+## **Automated Testing**
 
+## **Responsiveness**
 
+## **Solved Problem**
+
+## **Unsolved Problem**
 
 
 
