@@ -10,7 +10,7 @@ Back to [README](README.md)
 
  - [Lighthouse](#lighthouse)
 
- - [Manual](#manual)
+ - [Manual Testing](#manual-testing)
 
  - [Automated](#automated)
 
@@ -185,6 +185,174 @@ Back to [README](README.md)
 - settings.py has two lines which could not be shortened
 
 ## **Light House** - Chrome DevTools
+
+During testing, I used Chrome DevTools lighthouse reports. I have generated a report for each page both desktop and mobile. There were a list of actions have been taken to improve the score regarding SEO and Performance see below:
+
+- Resize all images, and use webp format for two of the big size hero images.
+
+- Add meta data descriptions 
+
+- Add apple touch icon
+
+## **Manual Testing**
+
+### **Navigation**
+
+| **Element** | **Action**|  **Expected Result** |  **Pass/Fail** |
+|---|---|---|---|
+|  **Navbar** |   |   |   |
+|  Logo/Site name | click  | redirect to home page  |  Pass |
+| **Searchbar**  |   |   |   |
+|  Searchbar |  Enter a query | display products related to that query  |  Pass |
+|  Searchbar Icon| click | submit query | Pass |
+|  **My Account Icon** |   |   |   |
+|  My Accout Icon dropdown | click  |  display a dropdow list |  Pass |
+|  *When user not logged in*|   |   |   |
+|  Register |  click |  redirect user to sign up page | Pass   |
+| Log in  |  click | redirect user to sign in page    | Pass   |
+|  *When user logged in/not superuser* |   |   |   |
+| My Profile |  click |  redirect user to my profile page | Pass   |
+| Log out  | click  | Confirm log out page  | Pass  |
+|  *When user logged in/are superuser* |   |   |   |
+| Product Admin  | click   |  redirect user to add product page | Pass  |
+| **Main Navbar**  |   |   |   |
+| About |  click | redirect user to about page   | Pass   |
+| Classes  | click  | redirect user to Classes page  | Pass   |
+| Membership  | click   | display memebership category out of products  | Pass  |
+| Shop  |  click | display a dropdown list   |  Pass |
+| All products  | click   | redirect user to all products page  | Pass |
+| By Price  | click  | display products by price in ascending order |  Pass |
+| By rating  | click   | display products by rating in descending order  | Pass  |
+| By category | click   | display products by their category in ascending order with the name  | Pass  |
+|  *Category dropdown* |   |   |   |
+| Training Gi  | click  | only display products belong to this category  |  Pass |
+| Karate Belt | click  | only display products belong to this category  |  Pass |
+| Books | click  | only display products belong to this category  |  Pass |
+| Accessories | click  | only display products belong to this category  |  Pass |
+| Membership | click  | only display products belong to this category  |  Pass |
+| **Footer**  |   |   |   |
+| Social icons  | click  | open up a seperate developer's social account page  | Pass  |
+
+### **Home Page**
+
+| **Element** | **Action**|  **Expected Result** |  **Pass/Fail** |
+|---|---|---|---|
+| **Hero Image Slides**  |   |   |   |
+| Join us Button  | click   | redirect user to contact us page  | Pass  |
+| Classes Avialiable Button  |  click | redirect user to classes page  | Pass   |
+| Learn more about us button  | click | redirect user to about page  | Pass  |
+| **Feature Products Section**  | None  | display all products featured by admin  | Pass  |
+
+### **About Page**
+
+| **Element** | **Action**|  **Expected Result** |  **Pass/Fail** |
+|---|---|---|---|
+|Learn more about our classes button   | click  | redirect user to classes page  | Failed  |
+| Action | Added in the link |  |  |
+
+
+### **Classes Page**
+
+All classes card images are displayed and responsive.
+
+### **Contact Us Page**
+
+| **Element** | **Action**|  **Expected Result** |  **Pass/Fail** |
+|---|---|---|---|
+| text input   |  type text input | show text  | Pass  |
+| submit button  | click  | send message to admin  |  Pass |
+|   |   | Toast message pops up  | Pass  |
+|   |   | redirect user to home page  | Pass  |
+
+### **All Products Page**
+
+| **Element** | **Action**|  **Expected Result** |  **Pass/Fail** |
+|---|---|---|---|
+| Category Buttons  | click  | display the products belong to that category accordingly  | Pass  |
+| Breadcrumb  | none  | display the total of products  | Pass  |
+| Breadcrumb's Product Home |  click | redirect user to all products page  |  Pass |
+| Sorting bar  | click  | sort products by specific query  |  Pass |
+| View Details button  | click  | redirect user to that specific product detail page  | Pass  |
+| Product Image  | click  | redirect user to that specific product detail page   | Pass  |
+| Back to Top button  | click  | pop the view back to the top of the page  | Pass  |
+| *When a superuser logged in*  |   |   |   |
+| Edit/Delete link shows  |   |   |   |
+| Edit  | click  | redirect user to edit product page  | Pass  |
+| Delete  | click  | a confirm deletion modal pops up  | Pass  |
+|   | Press ok  | The product is deleted from database permanently  | Pass  |
+
+### **Product Detail Page**
+
+| **Element** | **Action**|  **Expected Result** |  **Pass/Fail** |
+|---|---|---|---|
+| Image  | Click  | open up the image in a seperate page  | Failed  |
+| Action!  |  add  `target="_blank" `  to the  `ìmg` element |   |   |
+| Sub Image  | click  | open up the image in a seperate page  |  Failed |
+| Action!  | add achor tage `<a> ` to sub imgage element  |   |   |
+| Select Input/Size   | click  | shows the corresponding value   | Pass  |
+| Select Input/color  |  click  | shows the corresponding value   | Pass  |
+| Add to bag  |  click |  add item to the shopping bag with the variation value and redirect user to the bag page | Pass  |
+| Keep shopping button  | click  | redirect user to all products page  | Pass  |
+
+### **Shopping Bag Page**
+
+| **Element** | **Action**|  **Expected Result** |  **Pass/Fail** |
+|---|---|---|---|
+| Toast message  | None  | pop up with a success message  | Pass  |
+| Product name  | click  | redirect user to product detail page  | Pass  |
+| **Minus button**  |   |   |   |
+| *When there's only one such item in the bag*  |   |   |   |
+|   | click  |  removes item from the shopping bag, your bag is empty message shows up, toast success message shows up | Pass  |
+| *when there are more than 1 such items in the bag*   |   |   |   |
+|   | click  | reduce the item quantity by 1, Toast sucess message shows with a shopping bag preview | Pass  |
+| Plus Button | click  | increase the lineitem quantity by 1, toast success message shows up | Pass  |
+| Delete Button  | click  | a confirm deletion modal pops up  | Pass  |
+|   | press ok  | delete the lineitem from the shopping bag  |   |
+| Secure Checkout button  | click  | redirect user to the checkout page  | Pass  |
+| Keep shopping button  | click  | redirect user to all products page  | Pass  |
+
+### **Checkout Page**
+
+| **Element** | **Action**|  **Expected Result** |  **Pass/Fail** |
+|---|---|---|---|
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+
+### **Checkout Success Page**
+
+| **Element** | **Action**|  **Expected Result** |  **Pass/Fail** |
+|---|---|---|---|
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+
+## **Profile Page**
+
+| **Element** | **Action**|  **Expected Result** |  **Pass/Fail** |
+|---|---|---|---|
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+
+### **Product Admin Page**
+
+| **Element** | **Action**|  **Expected Result** |  **Pass/Fail** |
+|---|---|---|---|
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+
+### **Alluth Pages**
+
+| **Element** | **Action**|  **Expected Result** |  **Pass/Fail** |
+|---|---|---|---|
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+
+
+
 
 
 
