@@ -42,7 +42,7 @@ This website is a mockup site designed for Sensei Seamus's Dojo.
 
 ### **Overview**
 
-As an user/potential learner, there are a few things they would like to find out. For example, the history of the dojo,about the instructors, what kinda martial arts classes does the dojo provide. And the class timetable.
+As an user/potential learner, there are a few things they would like to find out. For example, the history of the dojo, about the instructors, what kind of martial arts classes does the dojo provide. And the class timetable.
 
 ### **User stories**
 
@@ -205,7 +205,7 @@ s grid system and various media queries had been used throughout the project to 
 
 #### ***Home***
 
-- Hero image slides gives potential customers a brife idea what the dojo providing.
+- Hero image slides gives potential customers a brief idea what the dojo providing.
 
 - The quick links gives the users a quick access to specific area of the site.
 
@@ -225,7 +225,7 @@ s grid system and various media queries had been used throughout the project to 
 
 #### ***Product Detail***
 
-- In addtion of the information the products page gives to the user, the product detail page gives the user a brife discription about the product.
+- In addtion of the information the products page gives to the user, the product detail page gives the user a brief discription about the product.
 
 - There are also more images displayed if there are any.
 
@@ -818,7 +818,7 @@ Full details of testing can be found [here.](testing.md)
 
 - [Code Institute Boutique Ado walk through](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSF_102+Q1_2020/courseware/4201818c00aa4ba3a0dae243725f6e32/d3188bf68530497aa5fba55d07a9d7d7/)
 
-- [Coding Point - Django Tutorial for beginners](https://www.youtube.com/playlist?list=PLPp4GCMxKSjCM9AvhmF9OHyyaJsN8rsZK) - create productimage model and attach multiple images to single product.
+- [Coding Point - Django Tutorial for beginners](https://www.youtube.com/playlist?list=PLPp4GCMxKSjCM9AvhmF9OHyyaJsN8rsZK) - create "ProductImage" model and attach multiple images to single product.
 
 - [Django Ecommerce | Build Advanced Django Web Application](https://www.udemy.com/course/django-ecommerce-project-based-course-python-django-web-development/) - learned create variation model and variation manager from this course
 
