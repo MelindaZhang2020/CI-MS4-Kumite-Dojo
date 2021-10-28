@@ -315,9 +315,26 @@ All classes card images are displayed and responsive.
 
 | **Element** | **Action**|  **Expected Result** |  **Pass/Fail** |
 |---|---|---|---|
-|   |   |   |   |
-|   |   |   |   |
-|   |   |   |   |
+| Form fields  | on load   | fields populated with user default info(if previously saved)  | Pass  |
+| Text Input  |  leave blank | On submit: form won't submit  | Pass  |
+|   |   | error message on invalid field(s)  | Pass  |
+|   | just whitespace  | On submit: form won't submit  |  Pass |
+|   |   |  error message at the bottom of page | Pass  |
+|   | fill in correctly  | on submit: form submits  |  Pass |
+| Phone number Input   | leave blank  | on submit: for won't submit  | Pass  |
+|   |   | error message on field  | Pass  |
+|   | Just whitespace  | on submit: form won't submit  | Pass  |
+|   |   | error message on field  | Pass  |
+|   | use non numeric characters  | on submit: form won't submit  | Failed (see known bugs)  |
+|   |   | error on field | Failed (see known bugs) |
+| Email Input   |  leave blank |  on submit: form won't submit  | Pass  |
+|   |   | error message on field  | Pass  |
+|   | just whitespace  | On submit: form won't submit  |  Pass |
+|   |   |  error message at the bottom of page | Pass  |
+|   | fill in correctly  | on submit: form submits  |  Pass |
+| Form Dropdown  | click   | show dropdown options  | Pass  |
+
+
 
 ### **Checkout Success Page**
 
