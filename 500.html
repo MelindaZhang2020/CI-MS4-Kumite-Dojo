@@ -4,7 +4,7 @@
 {% block content %}
 <div class="margin">
     <div class="center">
-        <img src="https://kumite-dojo.s3.eu-west-1.amazonaws.com/media/500.jpg" alt="500 error image">
+        <img src="{{ MEDIA_URL }}500.jpg" alt="500 error image">
         <h1>Ooops, some problem here!</h1>
         <div>
             <a href="{% url 'home' %}" class="btn btn-outline-dark mt-2">
