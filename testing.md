@@ -12,9 +12,7 @@ Back to [README](README.md)
 
 [Manual Testing](#manual-testing)
 
-[Automated](#automated)
-
-[Responsiveness](#responsiveness)
+[Responsiveness Testing](#responsiveness-testing)
 
 [Resolved Issues](#resolved-issues)
 
@@ -394,6 +392,10 @@ All classes card images are displayed and responsive.
 |   |   | form won't submit | Pass  |
 |   |   | error message on invalid fields | Pass  |
 
+### **Stripe webhooks testing**
+
+![stripe webhooks testing](static/img/stripe-webhooks-testing.png)
+
 ### **Checkout Success Page**
 
 | **Element** | **Action**|  **Expected Result** |  **Pass/Fail** |
@@ -560,7 +562,65 @@ Form Text Input (if required)  |Leave blank|On Submit: Warning appears, form won
 
 [Back to contents](#contents) ⬆️
 
-## **Responsiveness**
+## **Responsiveness Testing**
+
+The site has been designed with a mobile-first philosophy and, supported by [Bootstrap Grid system](https://getbootstrap.com/docs/5.1/layout/grid/), has been thoroughly tested at all stages of development using [Chrome DevTools](https://developer.chrome.com/docs/devtools/).
+
+In additional to boostrap, media query have been used to maximise the readibility of text and images. 
+
+### **Browsers**
+
+- Chrome 
+
+- Edge
+
+- Firefox
+
+- Safari(iOS)
+
+No issues found 
+
+### **Screen sizes**
+
+Tested with [Responsive Viewer](https://chrome.google.com/webstore/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb?hl=en) for the following devices, accounting for mininum screen width of 320px:
+
+- iPhone 5/5SE, 320x568
+
+- iPhone XS,X, 375x812
+
+- Galaxy S9 Plus, 412x846
+
+- Galaxy S9 Note 8, 360x740
+
+- Pixel 3, 3 XL, 393x786
+
+- iPhone 8 Plus, 7 Plus, 414x736
+
+- iPad Mini, 768x1024
+
+- iPad Pro, 834x1112
+
+- Medium Screen, 1024x800
+
+- Large Screen, 1280x800
+
+No issues found
+
+Real world testing on:
+
+- Sumsung Galaxy S10
+
+- Huawei P10
+
+- Sumsung A125F
+
+- Xiaomi Redmi Note10 Pro
+
+- Macbook Air
+
+- Lenovo Yoga 530
+
+No issues found
 
 [Back to contents](#contents) ⬆️
 
@@ -610,6 +670,26 @@ self.fields["phone_number"].widget.attrs.update(
             }
         )
 ```
+It matches the following example:
+
+```
+18005551234
+1 800 555 1234
++1 800 555-1234
++86 800 555 1234
+1-800-555-1234
+1 (800) 555-1234
+(800)555-1234
+(800) 555-1234
+(800)5551234
+800-555-1234
+800.555.1234
+800 555 1234x5678
+8005551234 x5678
+1    800    555-1234
+1----800----555-1234
+```
+
 *Bug* - Form text field allowed whitespace upon form submission.
 
 *Solution*
@@ -633,6 +713,8 @@ self.fields["postcode"].widget.attrs.update({"pattern": ".*\\S+.*"})
 - Edit product functionality only works on product has single image and variation.
 
 Due to the complexes of product variation concept, I decide to leave it for future learning. Also considering all product admin tasks can be done in admin interface.
+
+- 500 error page context proccessor failed 
 
 [Back to contents](#contents) ⬆️
 
