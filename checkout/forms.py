@@ -44,3 +44,18 @@ class OrderForm(forms.ModelForm):
                 self.fields[field].widget.attrs["placeholder"] = placeholder
             self.fields[field].widget.attrs["class"] = "stripe-style-input"
             self.fields[field].label = False
+
+        # add regex to phone number field to avoid non numeric charaters being submitted
+        # https://stackoverflow.com/questions/16699007/regular-expression-to-match-standard-10-digit-phone-number
+        self.fields["phone_number"].widget.attrs.update(
+            {
+                "pattern": "^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$"
+            }
+        )
+        # adding regex to each field to avoid whitespace being submitted
+        self.fields["full_name"].widget.attrs.update({"pattern": ".*\\S+.*"})
+        self.fields["street_address1"].widget.attrs.update({"pattern": ".*\\S+.*"})
+        self.fields["street_address2"].widget.attrs.update({"pattern": ".*\\S+.*"})
+        self.fields["town_or_city"].widget.attrs.update({"pattern": ".*\\S+.*"})
+        self.fields["county"].widget.attrs.update({"pattern": ".*\\S+.*"})
+        self.fields["postcode"].widget.attrs.update({"pattern": ".*\\S+.*"})

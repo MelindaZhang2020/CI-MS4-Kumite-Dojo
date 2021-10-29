@@ -275,7 +275,7 @@ During testing, I used Chrome DevTools lighthouse reports. I have generated a re
 
 | **Element** | **Action**|  **Expected Result** |  **Pass/Fail** |
 |---|---|---|---|
-|Learn more about our classes button   | click  | redirect user to classes page  | Failed (see resolved issues) |
+|Learn more about our classes button   | click  | redirect user to classes page  | Fail (see resolved issues) |
 
 ### **Classes Page**
 
@@ -294,8 +294,8 @@ All classes card images are displayed and responsive.
 |   |   | error message on field | Pass  |
 |   | just whitespace   | on submit: form won't submit  | Pass  |
 |   |   |erro message at bottom of page   |  Pass |
-|   | Wrong format  | on submit: form won't submit  | Pass  |
-|   |   | error message on field  | Pass  |
+|   | Wrong format  | on submit: form won't submit  |  Fail (see resolved issues)  |
+|   |   | error message on field  |  Fail (see resolved issues)  |
 |   | fill in correctly  | on submit: form submits  | Pass  |
 | Submit button (form invalid)  | click  | form won't submit  |  Pass |
 |   |   | error message on invalid field(s)  | Pass  |
@@ -357,19 +357,19 @@ All classes card images are displayed and responsive.
 | Form fields  | on load   | fields populated with user default info(if previously saved)  | Pass  |
 | Text Input  |  leave blank | On submit: form won't submit  | Pass  |
 |   |   | error message on invalid field(s)  | Pass  |
-|   | just whitespace  | On submit: form won't submit  |  Pass |
-|   |   |  error message at the bottom of page | Pass  |
+|   | just whitespace  | On submit: form won't submit  |  Fail (see resolved issues) |
+|   |   |  error message at the bottom of page | Fail (see resolved issues)  |
 |   | fill in correctly  | on submit: form submits  |  Pass |
 | Phone number Input   | leave blank  | on submit: for won't submit  | Pass  |
 |   |   | error message on field  | Pass  |
-|   | Just whitespace  | on submit: form won't submit  | Pass  |
-|   |   | error message on field  | Pass  |
-|   | use non numeric characters  | on submit: form won't submit  | Failed (see unsolved problem)  |
+|   | Just whitespace  | on submit: form won't submit  | Fail (see resolved issues)  |
+|   |   | error message on field  | Fail (see resolved issues)  |
+|   | use non numeric characters  | on submit: form won't submit  | Fail (see resolved issues)  |
 |   |   | error on field | Failed (see unsolved problem) |
 | Email Input   |  leave blank |  on submit: form won't submit  | Pass  |
 |   |   | error message on field  | Pass  |
-|   | just whitespace  | On submit: form won't submit  |  Pass |
-|   |   |  error message at the bottom of page | Pass  |
+|   | just whitespace  | On submit: form won't submit  |  Fail (see resolved issues) |
+|   |   |  error message at the bottom of page | Fail (see resolved issues) |
 |   | fill in correctly  | on submit: form submits  |  Pass |
 | Form Dropdown  | click   | show dropdown options  | Pass  |
 | Save to profile checkbox  | Onload(user logged in)  | shown  | Pass  |
@@ -566,21 +566,70 @@ Form Text Input (if required)  |Leave blank|On Submit: Warning appears, form won
 
 ## **Resolved Issues**
 
+### **Products detail page**
 
-products detail page
-| Action!  |  add  `target="_blank" `  to the  `ìmg` element |   |   |
-| Action!  | add achor tage `<a> ` to sub imgage element  |   |   |
-about page
-| Action | Added in the link |  |  |
+*Bug* - When click on product image, the image opened up on current page.
 
-contact page
+*Solution* - add  `target="_blank" `  to the  `ìmg` element
 
-email input field validation
+*Bug* - product sub images are non clickable for zoon view.
+
+*Solution* - add achor tage `<a> ` to sub imgage element
+
+### **About page**
+
+*Bug* - Learn more about our classes button didn't work.
+
+*Solution* - Added in the `href` value.
+
+
+### **Contact page**
+
+*Bug* - form email input field allowed non email format submission.
+
+*Solution* - change input `type` attribute value to `email`
+
+*Bug* - form text input field allow whitespace upon submission.
+
+*Solution* - add `pattern=".*\\S+.*"` attribute into text input fields.
+
+### **Checkout form validation**
+
+*Bug* -Phone number input Field allowed non numeric charaters upon submission.
+
+*Solution*
+
+After some research I found a solution on [stackoverflow](https://stackoverflow.com/questions/16699007/regular-expression-to-match-standard-10-digit-phone-number)- Regular expression to match standard 10 digit phone number
+
+Add Regular Expression in `form.py`:
+
+```
+self.fields["phone_number"].widget.attrs.update(
+            {
+                "pattern": "^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$"
+            }
+        )
+```
+*Bug* - Form text field allowed whitespace upon form submission.
+
+*Solution*
+
+Add Regular Expression in `form.py`:
+
+```
+# adding regex to each field to avoid whitespace being submitted
+self.fields["full_name"].widget.attrs.update({"pattern": ".*\\S+.*"})
+self.fields["street_address1"].widget.attrs.update({"pattern": ".*\\S+.*"})
+self.fields["street_address2"].widget.attrs.update({"pattern": ".*\\S+.*"})
+self.fields["town_or_city"].widget.attrs.update({"pattern": ".*\\S+.*"})
+self.fields["county"].widget.attrs.update({"pattern": ".*\\S+.*"})
+self.fields["postcode"].widget.attrs.update({"pattern": ".*\\S+.*"})
+```
+
+
 
 
 ## **Unresolved Issues**
-
-Telephone input Field
 
 product admin with products has more than one images and variation
 
