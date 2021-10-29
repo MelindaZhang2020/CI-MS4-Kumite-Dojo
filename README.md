@@ -112,6 +112,7 @@ There were some deviations from the plan due to time constraints. There were:
 - Not including a wishlist due to the complexity of implementing Ajax.
 
 - Not including a pagination .
+
 [Back to contents](#contents) ⬆️
 
 ## **Database Model**

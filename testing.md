@@ -714,7 +714,11 @@ self.fields["postcode"].widget.attrs.update({"pattern": ".*\\S+.*"})
 
 Due to the complexes of product variation concept, I decide to leave it for future learning. Also considering all product admin tasks can be done in admin interface.
 
-- 500 error page context proccessor failed 
+- 500 error page context proccessor failed corresponding and custom image doesn't show up.
+
+![500 error testing](static/img/500-error-testing.png)
+
+I have double check image tag path, it's exactly the same as 404 error page, the 404 error page works perfectly, but not 500 error page. I have done some reseach on it, tried to moved the html page to root directory, the image showed up but the context processor still didn't work. Tested another time, the whole page decided not to work, so I place it back to templates folder and sleep on it for further learning.
 
 [Back to contents](#contents) ⬆️
 
