@@ -1,7 +1,7 @@
 /* Contact form */
 /* https://www.w3schools.com/howto/howto_css_responsive_form.asp */
 /* Style inputs, select elements and textareas */
-input[type=text], select, textarea{
+#fname, #lname, #email, #subject {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -17,7 +17,7 @@ input[type=text], select, textarea{
   }
   
   /* Style the submit button */
-  input[type=submit] {
+  #submit {
     color: white;
     padding: 12px 20px;
     border: none;
