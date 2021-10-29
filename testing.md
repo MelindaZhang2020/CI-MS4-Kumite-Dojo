@@ -626,12 +626,13 @@ self.fields["county"].widget.attrs.update({"pattern": ".*\\S+.*"})
 self.fields["postcode"].widget.attrs.update({"pattern": ".*\\S+.*"})
 ```
 
-
-
-
 ## **Unresolved Issues**
 
-product admin with products has more than one images and variation
+- Add product functionality only allow single image and variation attach to the product.
+
+- Edit product functionality only works on product has single image and variation.
+
+Due to the complexes of product variation concept, I decide to leave it for future learning. Also considering all product admin tasks can be done in admin interface.
 
 [Back to contents](#contents) ⬆️
 
