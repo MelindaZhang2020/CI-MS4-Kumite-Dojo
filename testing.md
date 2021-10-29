@@ -204,25 +204,51 @@ During testing, I used Chrome DevTools lighthouse reports. I have generated a re
 |---|---|---|---|
 |  **Navbar** |   |   |   |
 |  Logo/Site name | click  | redirect to home page  |  Pass |
-| **Searchbar**  |   |   |   |
 |  Searchbar |  Enter a query | display products related to that query  |  Pass |
 |  Searchbar Icon| click | submit query | Pass |
-|  **My Account Icon** |   |   |   |
 |  My Accout Icon dropdown | click  |  display a dropdow list |  Pass |
-|  *When user not logged in*|   |   |   |
-|  Register |  click |  redirect user to sign up page | Pass   |
-| Log in  |  click | redirect user to sign in page    | Pass   |
-|  *When user logged in/not superuser* |   |   |   |
-| My Profile |  click |  redirect user to my profile page | Pass   |
+|  Register |  click |  redirect to sign up page | Pass   |
+| Log in  |  click | redirect to sign in page    | Pass   |
+| My Profile |  click |  redirect to my profile page | Pass   |
+|   |   | (only when user are logged in)  | Pass  |
 | Log out  | click  | Confirm log out page  | Pass  |
-|  *When user logged in/are superuser* |   |   |   |
-| Product Admin  | click   |  redirect user to add product page | Pass  |
-| **Main Navbar**  |   |   |   |
-| About |  click | redirect user to about page   | Pass   |
-| Classes  | click  | redirect user to Classes page  | Pass   |
+|   |   | (only when user are logged in)  | Pass  |
+| Product Admin  | click   |  redirect to add product page | Pass  |
+|   |   | (only when superuser are logged in)  | Pass  |
+| Bag Icon  | click  | redirect to bag page  | Pass  |
+| **MainNav**  |   |   |   |
+| About |  click | redirect to about page   | Pass   |
+| Classes  | click  | redirect to Classes page  | Pass   |
 | Membership  | click   | display memebership category out of products  | Pass  |
-| Shop  |  click | display a dropdown list   |  Pass |
-| All products  | click   | redirect user to all products page  | Pass |
+| Shop dropdown |  click | display a dropdown list   |  Pass |
+| All products  | click   | redirect to all products page  | Pass |
+| By Price  | click  | display products by price in ascending order |  Pass |
+| By rating  | click   | display products by rating in descending order  | Pass  |
+| By category | click   | display products by their category in ascending order with the name  | Pass  |
+|  *Category dropdown* |   |   |   |
+| Training Gi  | click  | only display products belong to this category  |  Pass |
+| Karate Belt | click  | only display products belong to this category  |  Pass |
+| Books | click  | only display products belong to this category  |  Pass |
+| Accessories | click  | only display products belong to this category  |  Pass |
+| Membership | click  | only display products belong to this category  |  Pass |
+| **SideNav**  |   |   |   |
+| Hamburger Icon  |  click | open sidenav  | Pass  |
+| Logo/Site name  | click  | redirect to home  |  Pass |
+|  My Accout Icon dropdown | click  |  display a dropdow list |  Pass |
+|  Register |  click |  redirect to sign up page | Pass   |
+| Log in  |  click | redirect to sign in page    | Pass   |
+| My Profile |  click |  redirect to my profile page | Pass   |
+|   |   | (only when user are logged in)  | Pass  |
+| Log out  | click  | Confirm log out page  | Pass  |
+|   |   | (only when user are logged in)  | Pass  |
+| Product Admin  | click   |  redirect to add product page | Pass  |
+|   |   | (only when superuser are logged in)  | Pass  |
+| Bag Icon  | click  | redirect to bag page  | Pass  |
+| About |  click | redirect to about page   | Pass   |
+| Classes  | click  | redirect to Classes page  | Pass   |
+| Membership  | click   | display memebership category out of products  | Pass  |
+| Shop dropdown |  click | display a dropdown list   |  Pass |
+| All products  | click   | redirect to all products page  | Pass |
 | By Price  | click  | display products by price in ascending order |  Pass |
 | By rating  | click   | display products by rating in descending order  | Pass  |
 | By category | click   | display products by their category in ascending order with the name  | Pass  |
@@ -249,9 +275,7 @@ During testing, I used Chrome DevTools lighthouse reports. I have generated a re
 
 | **Element** | **Action**|  **Expected Result** |  **Pass/Fail** |
 |---|---|---|---|
-|Learn more about our classes button   | click  | redirect user to classes page  | Failed  |
-| Action | Added in the link |  |  |
-
+|Learn more about our classes button   | click  | redirect user to classes page  | Failed (see resolved issues) |
 
 ### **Classes Page**
 
@@ -287,31 +311,31 @@ All classes card images are displayed and responsive.
 
 | **Element** | **Action**|  **Expected Result** |  **Pass/Fail** |
 |---|---|---|---|
-| Image  | Click  | open up the image in a seperate page  | Failed  |
-| Action!  |  add  `target="_blank" `  to the  `ìmg` element |   |   |
-| Sub Image  | click  | open up the image in a seperate page  |  Failed |
-| Action!  | add achor tage `<a> ` to sub imgage element  |   |   |
+| Image  | Click  | open up the image in a seperate page  | Failed (see resolved issues) |
+| Sub Image  | click  | open up the image in a seperate page  |  Failed (see resolved issues)|
 | Select Input/Size   | click  | shows the corresponding value   | Pass  |
 | Select Input/color  |  click  | shows the corresponding value   | Pass  |
-| Add to bag  |  click |  add item to the shopping bag with the variation value and redirect user to the bag page | Pass  |
+| Add to bag  |  click |  add item to the shopping bag with the variation value and redirect to the bag page | Pass  |
 | Keep shopping button  | click  | redirect user to all products page  | Pass  |
 
 ### **Shopping Bag Page**
 
 | **Element** | **Action**|  **Expected Result** |  **Pass/Fail** |
 |---|---|---|---|
+|**No bag items**  |   |   |   |
+| Keep shopping button  | click  | redirect to all products page  | Pass  |
+| **Bag items** |   |   |   |
 | Toast message  | None  | pop up with a success message  | Pass  |
 | Product name  | click  | redirect user to product detail page  | Pass  |
-| **Minus button**  |   |   |   |
-| *When there's only one such item in the bag*  |   |   |   |
-|   | click  |  removes item from the shopping bag, your bag is empty message shows up, toast success message shows up | Pass  |
-| *when there are more than 1 such items in the bag*   |   |   |   |
-|   | click  | reduce the item quantity by 1, Toast sucess message shows with a shopping bag preview | Pass  |
+| **Minus button**  |   |   |   |  
+|   | click(When there's only one such item in the bag)  |  removes item from the shopping bag, your bag is empty message shows up, toast success message shows up | Pass  |
+|   | click(when there are more than 1 such items in the bag)  | reduce the item quantity by 1, Toast sucess message shows with a shopping bag preview | Pass  |
 | Plus Button | click  | increase the lineitem quantity by 1, toast success message shows up | Pass  |
 | Delete Button  | click  | a confirm deletion modal pops up  | Pass  |
 |   | press ok  | delete the lineitem from the shopping bag  |   |
-| Secure Checkout button  | click  | redirect user to the checkout page  | Pass  |
-| Keep shopping button  | click  | redirect user to all products page  | Pass  |
+| Secure Checkout button  | click(user logged in)  | redirect to the checkout page(if save_info, form populated with user info) | Pass  |
+| Secure Checkout button  | click(user  not logged in)  | redirect to the checkout page (blank form) | Pass  |
+| Keep shopping button  | click  | redirect to all products page  | Pass  |
 
 ### **Checkout Page**
 
@@ -335,24 +359,53 @@ All classes card images are displayed and responsive.
 |   |   |  error message at the bottom of page | Pass  |
 |   | fill in correctly  | on submit: form submits  |  Pass |
 | Form Dropdown  | click   | show dropdown options  | Pass  |
-
-
+| Save to profile checkbox  | Onload(user logged in)  | shown  | Pass  |
+|   | Onload (user not logged in)  | not shown  |  Pass |
+|   | create an account/log in link - click  | redirect to appropriate page  | Pass   |
+|   |checked  | On submit: delivery info saved to user profile   | Pass  |
+|   | unchecked  | On submit: deliver info not saved to user profile  | Pass  |
+| Payment card input   | input invalid card number  | error message on field  | Pass  |
+|   | input invalid card date  | erroor message on field  | Pass  |
+|   | Onload (user not logged in)  | shown  |  Pass |
+| Adjust Bag Button  | click  | redirect   | Pass  |
+| Complete Order button(form invalid)  | click  | form won't submit  | Pass  |
+| Complete Order button(form valid)  | click  |   |   |
+|   | payment succeed  | loading screen appears  | Pass  |
+|   | (if user close the browser accidentally before the form submission)  | order created in database  | Pass  |
+|   |   | stripe webhooks stored the user's info | Pass  |
+|   |   | form submits  | Pass  |
+|   |   | order created in database  | Pass  |
+|   |   | redirect to checkout success page  | Pass  |
+|   | (if user logged in)  | order saved to user profile  | Pass  |
+|   |  payment failed | Loading animation appears  | Pass  |
+|   |   | form won't submit | Pass  |
+|   |   | error message on invalid fields | Pass  |
 
 ### **Checkout Success Page**
 
 | **Element** | **Action**|  **Expected Result** |  **Pass/Fail** |
 |---|---|---|---|
-|   |   |   |   |
-|   |   |   |   |
-|   |   |   |   |
+| Toast message  | None  | success messages  | Pass  |
 
 ## **Profile Page**
 
 | **Element** | **Action**|  **Expected Result** |  **Pass/Fail** |
 |---|---|---|---|
-|   |   |   |   |
-|   |   |   |   |
-|   |   |   |   |
+| Form fields  | Onload | fields populated with user default info(if previously saved)  | Pass  |
+| All input fields  |  leave blank | on submit: form submit  |  Pass |
+|   | just whitespace | leave blank  |  on submit: form submit |  Pass   |
+|   | fill in correctly   | leave blank  |  on submit: form submit | Pass |
+| Form dropdown  | click  | show dropdown options  | Pass  |
+| Update button  | click  | Form submits  | Pass  |
+|   |   | Form updated toast message appears  | Pass  |
+| Previous order number  | click  | redirect to previous order checkout success page  | Pass  |
+
+### **Previous Order checkout success page**
+
+| **Element** | **Action**|  **Expected Result** |  **Pass/Fail** |
+|---|---|---|---|
+| Toast message  | Onload | alert message inform the user this is a previous order  | Pass  |
+| Back to profile Button  | click  | redirect to profile page  | Pass  |
 
 ### **Product Admin Page**
 
@@ -377,11 +430,19 @@ All classes card images are displayed and responsive.
 
 ## **Responsiveness**
 
-## **Solved Problem**
-
-## **Unsolved Problem**
+## **Resolved Issues**
 
 
+products detail page
+| Action!  |  add  `target="_blank" `  to the  `ìmg` element |   |   |
+| Action!  | add achor tage `<a> ` to sub imgage element  |   |   |
+about page
+| Action | Added in the link |  |  |
+
+
+## **Unresolved Issues**
+
+Telephone input Field
 
 
 
