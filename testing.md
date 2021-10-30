@@ -604,7 +604,7 @@ Tested with [Responsive Viewer](https://chrome.google.com/webstore/detail/respon
 
 - Large Screen, 1280x800
 
-**No issues found*8
+**No issues found**
 
 Real world testing on:
 
