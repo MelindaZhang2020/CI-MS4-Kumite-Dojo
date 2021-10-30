@@ -26,15 +26,15 @@ Back to [README](README.md)
 
 - Heading descriptive of the content displayed.
 
-- Navar clearly indicate page directions.
+- Nabvar clearly indicates page directions.
 
-- Logo direct user back to home page.
+- Logo directs user back to home page.
 
 - Easy access to user profile and shopping bag.
 
 - Options of sort product by price, rating, name or category.
 
-- Back to top button when the list get too long.
+- Back to top button when the list gets too long.
 
 - Keep shopping buttons throughout checkout process.
 
@@ -44,7 +44,7 @@ Back to [README](README.md)
 
 - Same navbar and footer navigation system across all pages.
 
-- Images and elements are well contained throughtout the site.
+- Images and elements are well contained throughout the site.
 
 #### **Intuitive**
 
@@ -76,19 +76,19 @@ Back to [README](README.md)
 
 - The logo and name immediately spell out the purpose and the tone of the site, it's a Karate club.
 
-- The hero images slides with its headlines and links further demonstrate what the club has to offer.
+- The hero image slides with its headlines and links further demonstrate what the club has to offer.
 
 - The banner under the navbar tells the user there are classes and delivery involed, therefore there must be a shop.
 
-- As the user scrolling down, it confirms that there is a shop by seeing the featured products section.
+- As the user scrolls down, it confirms that there is a shop by seeing the featured products section.
 
-**Know the background of the dojo, and who the instrucor is**
+**Know the background of the dojo, and who the instructor is**
 
-- As the user keep browsing, they can see the about section, there are informations about the dojo and instructors.
+- As the user keeps browsing, they can see the about section, there is information about the dojo and instructors.
 
-**Findout what kind classes are avaliable and class schedule**
+**Find out what kind of classes are avaliable and class schedule**
 
-- The classes page contains classes and timetable information and a brife description of the classes.
+- The classes page contains classes and timetable information and a brief description of the classes.
 
 **Easily Browse through the cost of membership**
 
@@ -96,23 +96,23 @@ Back to [README](README.md)
 
 **Browse through the shop**
 
-- The navbar clearly marked out the shop section, and the choice of browse it by category.
+- The navbar clearly marks out the shop section, and the choice to browse it by category.
 
 **Add items to my shopping bag before registering**
 
-- The user can add items to the shopping bag without register.
+- The user can add items to the shopping bag without registering.
 
-**Search classes products by name**
+**Search classes and products by name**
 
-- The searchbar provides the user search certain products by name from the shop.
+- The searchbar allows the user to search products by name from the shop.
 
-- Unfortunately the user can't search a class by it name yet, but this functionality can be developed in the future.
+- Unfortunately the user can't search a class by name yet, but this functionality can be developed in the future.
 
 **Choose clothes and belts size**
 
-- The user can choose clothes and belt by various sizes and colors.
+- The user can choose clothes and belts by various sizes and colors.
 
-**Contact the dojo for more informations**
+**Contact the dojo for more information**
 
 - This need has been satisfied by providing a contact form to the user, and the data will be sent to the admin page, so that the site owner can contact the user to provide further information.
 
@@ -120,31 +120,31 @@ Back to [README](README.md)
 
 **Save my default delivery details**
 
-- As soon as a user checkout, if he/her tick save info box, his/her personal info will be saved into database.
+- As soon as a user checks out, if he/her tick save info box, his/her personal info will be saved into database.
 
 **View my previous purchases**
 
-- This also will be saved as long as the user clicked save info, and the user can click on the order number to be redirect to the checkout success page.
+- This also will be saved as long as the user clicked save info, and the user can click on the order number to be redirected to the checkout success page.
 
 **Review my shopping bag prior to checkout**
 
-- The shopping bag can be grabbed at ease, and also previewed when the user add or delete an item from the shopping bag.
+- The shopping bag can be grabbed at ease, and also previewed when the user adds or deletes an item from the shopping bag.
 
 **Recieve confirmation of my orders**
 
-- An real email will be sent as soon as the order is gone throught to confirm the details of the order, delivery info and grand total.
+- A real email will be sent as soon as the order is gone through to confirm the details of the order, delivery info and grand total.
 
 **Recieve free delivery above an order threshold**
 
-- This is offered and clearly stated during checkout, and encourage the user to get free delivery once they spend over 50.
+- This is offered and clearly stated during checkout, and encourages the user to get free delivery once they spend over 50.
 
 ### **As a site owner, I want to ...**
 
 **View, add, edit and delete products**
 
-- The site owner can access a quick add page through frontend page.
+- The site owner can access a quick add page through  the frontend page.
 
-- And this functionality is cover with Django admin interface, and beyond... 
+- And this functionality is covered by Django admin interface, and beyond... 
 
 - The site owner can not only add, edit and delete produts, but also control inventory, add multiple images, add different sizes and colors to different products.
 
@@ -168,13 +168,13 @@ Back to [README](README.md)
 
 - Value Error : padding-bottom Too many values or values are not recognized : [ footer-height ] 
 
-    Error caused by making footer stays at the bottom of the page, therefore it works fine - ignored
+    Error caused by making footer stay at the bottom of the page, therefore it works fine - ignored
 
 [Unicorn revealer - overflow](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln?hl=en-GB) - no evidence of overflow **Pass** ✅ 
 
 [JS Hint](https://jshint.com/) - no error, no warning **Pass** ✅ 
 
-[Pep8 Online](http://pep8online.com/) - all `.py` files have been paste into pep8 onlie, 0 errors - **Pass** ✅ apart from:
+[Pep8 Online](http://pep8online.com/) - all `.py` files have been pasted into pep8 online, 0 errors - **Pass** ✅ apart from:
 
 - webhookhandler.py has two lines which could not be shortened without making the code illegible
 
@@ -184,7 +184,7 @@ Back to [README](README.md)
 
 ## **Light House** - Chrome DevTools
 
-During testing, I used Chrome DevTools lighthouse reports. I have generated a report for each page both desktop and mobile. There were a list of actions have been taken to improve the score regarding SEO and Performance see below:
+During testing, I used Chrome DevTools lighthouse reports. I have generated a report for each page for both desktop and mobile. The actions that have been taken to improve the score regarding SEO and Performance are listed below:
 
 - Resize all images, and use webp format for two of the big size hero images.
 
@@ -208,11 +208,11 @@ During testing, I used Chrome DevTools lighthouse reports. I have generated a re
 |  Register |  click |  redirect to sign up page | Pass   |
 | Log in  |  click | redirect to sign in page    | Pass   |
 | My Profile |  click |  redirect to my profile page | Pass   |
-|   |   | (only when user are logged in)  | Pass  |
+|   |   | (only when user is logged in)  | Pass  |
 | Log out  | click  | Confirm log out page  | Pass  |
-|   |   | (only when user are logged in)  | Pass  |
+|   |   | (only when user is logged in)  | Pass  |
 | Product Admin  | click   |  redirect to add product page | Pass  |
-|   |   | (only when superuser are logged in)  | Pass  |
+|   |   | (only when superuser is logged in)  | Pass  |
 | Bag Icon  | click  | redirect to bag page  | Pass  |
 | **MainNav**  |   |   |   |
 | About |  click | redirect to about page   | Pass   |
@@ -236,11 +236,11 @@ During testing, I used Chrome DevTools lighthouse reports. I have generated a re
 |  Register |  click |  redirect to sign up page | Pass   |
 | Log in  |  click | redirect to sign in page    | Pass   |
 | My Profile |  click |  redirect to my profile page | Pass   |
-|   |   | (only when user are logged in)  | Pass  |
+|   |   | (only when user is logged in)  | Pass  |
 | Log out  | click  | Confirm log out page  | Pass  |
-|   |   | (only when user are logged in)  | Pass  |
+|   |   | (only when user is logged in)  | Pass  |
 | Product Admin  | click   |  redirect to add product page | Pass  |
-|   |   | (only when superuser are logged in)  | Pass  |
+|   |   | (only when superuser is logged in)  | Pass  |
 | Bag Icon  | click  | redirect to bag page  | Pass  |
 | About |  click | redirect to about page   | Pass   |
 | Classes  | click  | redirect to Classes page  | Pass   |
@@ -287,7 +287,7 @@ All classes card images are displayed and responsive.
 |   |   | error message on invalid field(s)  | Pass  |
 |   | just whitespace  | On submit: form won't submit  | Fail (see resolved issues) |
 |   |   | error message on invalid field(s)  | failed (see resolved issues)  |
-|   | fill in correctly  | on submit: form submits(create message in database)  | Pass  |
+|   | fill in correctly  | on submit: form submits (create message in database)  | Pass  |
 | Email Input  | leave blank  | on submit: form won't submit  | Pass  |
 |   |   | error message on field | Pass  |
 |   | just whitespace   | on submit: form won't submit  | Pass  |
@@ -564,9 +564,9 @@ Form Text Input (if required)  |Leave blank|On Submit: Warning appears, form won
 
 ## **Responsiveness Testing**
 
-The site has been designed with a mobile-first philosophy and, supported by [Bootstrap Grid system](https://getbootstrap.com/docs/5.1/layout/grid/), has been thoroughly tested at all stages of development using [Chrome DevTools](https://developer.chrome.com/docs/devtools/).
+The site has been designed with a mobile-first philosophy and, supported by [Bootstrap Grid system](https://getbootstrap.com/docs/5.1/layout/grid/), and has been thoroughly tested at all stages of development using [Chrome DevTools](https://developer.chrome.com/docs/devtools/).
 
-In additional to boostrap, media query have been used to maximise the readibility of text and images. 
+In addition to boostrap, media query have been used to maximise the readibility of text and images. 
 
 ### **Browsers**
 
@@ -578,7 +578,7 @@ In additional to boostrap, media query have been used to maximise the readibilit
 
 - Safari(iOS)
 
-No issues found 
+**No issues found**
 
 ### **Screen sizes**
 
@@ -604,7 +604,7 @@ Tested with [Responsive Viewer](https://chrome.google.com/webstore/detail/respon
 
 - Large Screen, 1280x800
 
-No issues found
+**No issues found*8
 
 Real world testing on:
 
@@ -614,13 +614,13 @@ Real world testing on:
 
 - Sumsung A125F
 
-- Xiaomi Redmi Note10 Pro
+- Xiaomi Redmi Note 10 Pro
 
 - Macbook Air
 
 - Lenovo Yoga 530
 
-No issues found
+**No issues found**
 
 [Back to contents](#contents) ⬆️
 
@@ -632,7 +632,7 @@ No issues found
 
 *Solution* - add  `target="_blank" `  to the  `ìmg` element
 
-*Bug* - product sub images are non clickable for zoon view.
+*Bug* - product sub images are non clickable for zoom view.
 
 *Solution* - add achor tage `<a> ` to sub imgage element
 
@@ -640,7 +640,7 @@ No issues found
 
 *Bug* - Learn more about our classes button didn't work.
 
-*Solution* - Added in the `href` value.
+*Solution* - Added the `href` value.
 
 
 ### **Contact page**
@@ -655,7 +655,7 @@ No issues found
 
 ### **Checkout form validation**
 
-*Bug* -Phone number input Field allowed non numeric charaters upon submission.
+*Bug* - Phone number input Field allowed non numeric charaters upon submission.
 
 *Solution*
 
@@ -712,13 +712,13 @@ self.fields["postcode"].widget.attrs.update({"pattern": ".*\\S+.*"})
 
 - Edit product functionality only works on product has single image and variation.
 
-Due to the complexes of product variation concept, I decide to leave it for future learning. Also considering all product admin tasks can be done in admin interface.
+Due to the complexity of product variation concept, I decide to leave it for future learning. Also considering all product admin tasks can be done in admin interface.
 
 - 500 error page context proccessor failed corresponding and custom image doesn't show up.
 
 ![500 error testing](static/img/500-error-testing.png)
 
-I have double check image tag path, it's exactly the same as 404 error page, the 404 error page works perfectly, but not 500 error page. I have done some reseach on it, tried to moved the html page to root directory, the image showed up but the context processor still didn't work. Tested another time, the whole page decided not to work, so I place it back to templates folder and sleep on it for further learning.
+I have double checked image tag path, it's exactly the same as 404 error page. The 404 error page works perfectly, but not the 500 error page. I have done some reseach on it, tried to moved the html page to the root directory, the image showed up but the context processor still didn't work. Tested another time, the whole page stopped working, so I placed it back into the templates folder and decided to sleep on it for further learning.
 
 [Back to contents](#contents) ⬆️
 

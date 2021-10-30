@@ -10,7 +10,7 @@ This website is a mockup site designed for Sensei Seamus's Dojo.
 
 ![mockup](static/img/all-devices-black.png)
 
-## [Live site](CI-MS4-kumite-dojo.heroku.com)
+## [Live site](https://kumite-dojo.herokuapp.com)
 
 ## [Contents](#contents)
 
@@ -42,7 +42,7 @@ This website is a mockup site designed for Sensei Seamus's Dojo.
 
 ### **Overview**
 
-As an user/potential learner, there are a few things they would like to find out. For example, the history of the dojo, about the instructors, what kind of martial arts classes does the dojo provide. And the class timetable.
+As a user/potential learner, there are a few things they would like to find out. For example, the history of the dojo, about the instructors, what kind of martial arts classes does the dojo provide, and the class timetable.
 
 ### **User stories**
 
@@ -67,14 +67,14 @@ As an user/potential learner, there are a few things they would like to find out
 |   | Find out who the instructor is | Decide if I want to train with him/her |
 |   | Find out what kind of classes are avaliable  |  Understand what kind of martial arts are taught here |
 |   | Find out the class schedule | See if the timetable matches mine  |
-|   |Easily browse through the cost of membership  | Learn how much it cost and decide whether to join |
+|   |Easily browse through the cost of membership  | Learn how much it costs and decide whether to join |
 |   | Browse through the shop  | Purchase products  |
 |   | Add items to my shopping bag before registering |  Avoiding registering if not neccessary |
 |   | Search classes and products by name  |  Find specific class or products |
 |   | Choose clothes and belts size   | Customise purchases to my preference  |
-|   | Contact the dojo for more informations | Make further decision          |
+|   | Contact the dojo for more information | Make a decision          |
 | Registered User  |  Save my default delivery details | Proceed to checkout more quickly in the future   |
-|   | View my previous purchases  | Make repeat order  |
+|   | View my previous purchases  | Make a repeat order  |
 |   | Review my shopping bag prior to checkout  | Remove/Adjust quantities  |
 |   | Recieve confirmation of my orders  | Have proof of purchase  |
 |   | Recieve free delivery above an order threshold  |  Feel rewarded for larger purchases |
@@ -111,7 +111,7 @@ There were some deviations from the plan due to time constraints. There were:
 
 - Not including a wishlist due to the complexity of implementing Ajax.
 
-- Not including a pagination .
+- Not including pagination.
 
 [Back to contents](#contents) ⬆️
 
@@ -125,31 +125,31 @@ A relational database is best suited to this project given the number of relatio
 
 #### **UserProfile**
 
-- Created on registration for each user, holds user information that can be used to speech checkout process.
+- Created on registration for each user, holds user information that can be used to speed up checkout process.
 
-- Stores order history for previous orders to encourage repeat order.
+- Stores order history for previous orders to encourage repeat orders.
 
 #### **Product**
 
-- Holds the infomation about a product includes name, description, price, stock counts and rating.
+- Holds the infomation about a product including name, description, price, stock count and rating.
 
-- The foreign key to ProductImage is very important as it allows multiple images attach to this particular product.
+- The foreign key to 'ProductImage' is very important as it allows multiple images attach to this particular product.
 
-- Similar to ProductImages, the variation foreign key relationship between Product and Variation is crutial. As it gives different product its individual unique sizes and colors.
+- Similar to 'ProductImages', the foreign key relationship between 'Product' and 'Variation' is crucial as it gives different product its individual unique sizes and colors.
 
-- The relationship to Category is descriptive.
+- The relationship to 'Category' is descriptive.
 
 #### **ProductImage**
 
-- This models stores multiple images for each product. Which is ideal in real life scenario, a product is more than likely has more than one image attach to it. Also gives the user a better user experience.
+- This model stores multiple images for each product. This is ideal in a real life scenario. A product is more than likely to have more than one image attached to it. Also gives the user a better user experience.
 
 #### **Variation**
 
-- This model allows us to give each product a different variation regardless the category/value. In my case, I was able to give the products different colors and sizes.
+- This model allows us to give each product a different variation regardless of the category/value. In my case, I was able to give the products different colors and sizes.
 
 #### **Category**
 
-- This model divide the products into category according to its types.
+- This model divides the products into category according to their types.
 
 - Considering the chances of blank spaces we also give it a friendly name.
 
@@ -159,19 +159,19 @@ A relational database is best suited to this project given the number of relatio
 
 #### **OrderLineItem**
 
-- This models stores each product in each order by its name, size, quantity and a subtotal.
+- This model stores each product in each order by its name, size, quantity and a subtotal.
 
 #### **Bag**
 
-- A bag has been create each time a lineitem has been added to the bag along with a bag id,and deleted after each checkout.
+- A bag has been create each time a lineitem has been added to the bag along with a bag id and deleted after each checkout.
 
 #### **BagItem**
 
-- This model has a foriegnkey relation to product model, and many to mang relation with the variation model.
+- This model has a foriegnkey relation to product model, and many to many relationship with the variation model.
 
 #### **Banner**
 
-- This model generates the home page hero images slides.
+- This model generates the home page hero image slides.
 
 #### **Contact**
 
@@ -189,16 +189,15 @@ A relational database is best suited to this project given the number of relatio
 
 - **Search Bar** - allows the user to search a particular product with a key word.
 
-- **Toasts** - Bootstrap toasts gives interaction to users after each action carried out. Show the shopping bag view for quick checkout option. Avoid confusion and gives user a better experience.
+- **Toasts** - Bootstrap toasts give interaction to users after each action carried out. Shows the shopping bag view for quick checkout option. Avoids confusion and gives user a better experience.
 
-- **Responsive** - Bootstrap
-s grid system and various media queries had been used throughout the project to ensure responsiveness.
+- **Responsive** - Bootstrap's grid system and various media queries had been used throughout the project to ensure responsiveness.
 
-- **User Profile** - allow users to save their information for easy acess for next visit. Order history encourage repeat order.
+- **User Profile** - allow users to save their information for easy acess for next visit. Order history encourages repeat order.
 
-- **Bag Item Counts** - the number of items in the shopping bag tells uers how many items they have added to the bag.
+- **Bag Item Counts** - the number of items in the shopping bag tells users how many items they have added to the bag.
 
-- **Navbar Banner** - tells the user about free class and free delivery offer.
+- **Navbar Banner** - tells the user about free classes and free delivery offer.
 
 - **Footer** - tells the user about the site purpose and developer info.
 
@@ -208,15 +207,15 @@ s grid system and various media queries had been used throughout the project to 
 
 - Hero image slides gives potential customers a brief idea what the dojo providing.
 
-- The quick links gives the users a quick access to specific area of the site.
+- The quick links give the users quick access to specific areas of the site.
 
-- The featured products section draw user's attention there is a shop in the site, encourage potential purchases.
+- The featured products section draws users attention that there is a shop in the site to encourage potential purchases.
 
 #### ***Products***
 
-- Product cards show the essential details of the product(name, rating, price and category)
+- Product cards show the essential details of the product (name, rating, price and category)
 
-- View Prouct details button tells the user, there's more to explore.
+- View Prouct details button tells the user there's more to explore.
 
 - Bootstrap Breadcrumb indicates which page the user is on and how many products are avaliable on the page.
 
@@ -226,9 +225,9 @@ s grid system and various media queries had been used throughout the project to 
 
 #### ***Product Detail***
 
-- In addtion of the information the products page gives to the user, the product detail page gives the user a brief discription about the product.
+- In addtion to the information the products page gives to the user, the product detail page gives the user a brief description about the product.
 
-- There are also more images displayed if there are any.
+- There are also more images displayed when applicable.
 
 - The user then has an option of choosing a color or size for that specific product if it applies.
 
@@ -240,7 +239,7 @@ s grid system and various media queries had been used throughout the project to 
 
 - Shows bag total, delivery, and grand total of the order.
 
-- Provide link to the specific product, allow easy alteration to sizes and colors etc.
+- Provides link to the specific product, allow easy alteration to sizes and colors etc.
 
 - If bag total is less than free delivery threshold, amount required to receive free delivery is shown.
 
@@ -266,11 +265,11 @@ s grid system and various media queries had been used throughout the project to 
 
 #### *Registered User*
 
-- Default contact and deliver info
+- Default contact and delivery info
 
 - Ability to update to make future checkouts quicker
 
-- view previous orders using same template as checkout success page
+- View previous orders using same template as checkout success page
 
 #### ***Add/Edit Product***
 
@@ -278,7 +277,7 @@ s grid system and various media queries had been used throughout the project to 
 
 - Can add/edit a product, chosing all of its required features.
 
-- Can choose whether or not the product shows on home page  featured product section.
+- Can choose whether or not the product shows on home page featured product section.
 
 - On submitting the addition/change, super user is sent to the updated product detail page.
 
@@ -306,7 +305,7 @@ Static and image files are served from an Amazon S3 Bucket.
 
 #### **Confirm delete**
 
-When users request to delete an orderline product from their shopping bag or a superuser request to delete an product, an alert pops up to confirm if they wish to do so to prevent accidental deletion.
+When users request to delete an 'orderline' product from their shopping bag or a superuser request to delete an product, an alert pops up to confirm if they wish to do so to prevent accidental deletion.
 
 #### **Access protection**
 
@@ -316,11 +315,11 @@ Routes are protected using Django's @login_required route decorators to ensure n
 
 ### **Features Left to Implement**
 
-- Blog app to display industry and Kumite Dojo news, including comments feature to engage with the communit and gather more feedback.
+- Blog app to display industry and Kumite Dojo news, including comments feature to engage with the community and gather more feedback.
 
 - Wishlisht for users to save their favourite products.
 
-- Products reviews, so the users can come back and leave a review after their purchase.
+- Product reviews, so the users can come back and leave a review after their purchase.
 
 - "Learning App" to show karate techniques and videos etc.
 
@@ -557,7 +556,7 @@ pip freeze > requirements.txt
 web:gunicorn kumite_dojo.wsgi:application
 ```
 
-19.Disable Heroku's static file collection(temporarily)
+19.Disable Heroku's static file collection (temporarily)
 ```
 heroku config:set DISABLE_COLLECTSTATIC=1 --app kumite-dojo
 ```
@@ -736,7 +735,7 @@ pip freeze > requirements.txt
 
 2.Add 'storages' to settings.py ` INSTALLED_APPS`
 
-3.Go to settings.py set the bucket config, 
+3.Go to settings.py and set the bucket config, 
 
 ```
 if "USE_AWS" in os.environ:
@@ -749,16 +748,16 @@ if "USE_AWS" in os.environ:
 
 ```
 
-2.Add the values from the **.csv** you downloaded to your Heroku Cvars under Settings:
+4.Add the values from the **.csv** you downloaded to your Heroku Config Vars under Settings:
 
 ```
 AWS_ACCESS_KEY_ID
 AWS_SECRET_ACCESS_KEY
 USE_AWS=True
 ```
-3.Delete the `DISABLE_COLLECTSTATIC` variable from your Cvars and deploy your Heroku app
+5.Delete the `DISABLE_COLLECTSTATIC` variable from your Config Vars and deploy your Heroku app
 
-4. Create custom_storage.py with code below:
+6. Create custom_storage.py with code below:
 
 ```
 from django.conf import settings
@@ -773,7 +772,7 @@ class MediaStorage(S3Boto3Storage):
     location = settings.MEDIAFILES_LOCATION
 ```
 
-5.Go to settings.py, set the static and media files storage and location and override static and media urls in production:
+7.Go to settings.py, set the static and media files storage and location and override static and media urls in production:
 
 ```
 # Static and media files
@@ -787,19 +786,19 @@ STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/"
 MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/"
 ```
 
-4.With your S3 bucket now set up, you can create a new folder called media (at the same level as the newly added static folder) and upload any required media files to it, making sure they are publicly accessible under **Permissions**
+8.With your S3 bucket now set up, you can create a new folder called media (at the same level as the newly added static folder) and upload any required media files to it, making sure they are publicly accessible under **Permissions**
 
-5.Add stripe keys in config vars in heroku, make sure the name match settings.py
+9.Add stripe keys in Config Vars in heroku, making sure the name matches settings.py
 
-6.Add stripe webhook endpoint with the deployed site url:
+10.Add stripe webhook endpoint with the deployed site url:
 
 ```
 https://kumite-dojo.herokuapp.com/checkout/wh/
 
 ```
-7.Get the new `STRIPE_WH_SECRET` and added it to the config vars.
+11.Get the new `STRIPE_WH_SECRET` and added it to the config vars.
 
-8.Now your site is fully deployed at [https://kumite-dojo.herokuapp.com](https://kumite-dojo.herokuapp.com)
+12.Now your site is fully deployed at [https://kumite-dojo.herokuapp.com](https://kumite-dojo.herokuapp.com)
 
 </details>
 
